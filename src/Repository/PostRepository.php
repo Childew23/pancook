@@ -15,6 +15,18 @@ class PostRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Post::class);
     }
+ 
+    public function findPublished(int $nb = 5) : array
+    {
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.active = :active')
+        ->setParameter('active', true)
+        ->orderBy('p.createdAt', 'DESC')
+        ->setMaxResults($nb)
+        ->getQuery()
+        ->getResult()
+    ;
+    }
 
     //    /**
     //     * @return Post[] Returns an array of Post objects

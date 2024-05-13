@@ -1,20 +1,37 @@
-{% extends 'base.html.twig' %}
+{% extends 'clean.html.twig' %}
 
-{% block title %}Hello PostController!{% endblock %}
+{% block title %}{{ post.title }}
+{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
+	<!-- Page Header-->
+	<header class="masthead" style="background-image: url({{ post.image }})">
+		<div class="container position-relative px-4 px-lg-5">
+			<div class="row gx-4 gx-lg-5 justify-content-center">
+				<div class="col-md-10 col-lg-8 col-xl-7">
+					<div class="post-heading">
+						<h1>{{ post.title }}</h1>
+						<span class="meta">
+							Publié par
+							<a href="#">{{ post.user.email }}</a>
+							{{ post.createdAt | ago }}
+							- Classé dans
+							{{ post.category.name }}
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ id }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/wamp64/www/pan/src/Controller/PostController.php</code></li>
-        <li>Your template at <code>C:/wamp64/www/pan/templates/post/index.html.twig</code></li>
-    </ul>
-</div>
+	<!-- Post Content-->
+	<article class="mb-4">
+		<div class="container px-4 px-lg-5">
+			<div class="row gx-4 gx-lg-5 justify-content-center">
+				<div class="col-md-10 col-lg-8 col-xl-7">
+					<p>{{ post.content | raw }}</p>
+				</div>
+			</div>
+		</div>
+	</article>
 {% endblock %}

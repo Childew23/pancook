@@ -16,7 +16,7 @@ class PostController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(PostRepository $postRepository): Response
     {
-        $posts = $postRepository->findAll();
+        $posts = $postRepository->findPublished();
         return $this->render('post/index.html.twig', [
             'controller_name' => 'PostController',
             'posts' => $posts
@@ -24,10 +24,10 @@ class PostController extends AbstractController
     }
 
     #[Route('/post/{id}', name: 'post_view', methods: ["GET"], requirements: ['id' => '\d+'], priority: 10)]
-    public function post_view($id): Response
+    public function post_view(Post $post): Response
     {
         return $this->render('post/post.html.twig', [
-            'id' => $id,
+            'post' => $post,
         ]);
     }
 

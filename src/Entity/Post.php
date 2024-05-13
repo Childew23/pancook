@@ -6,6 +6,8 @@ use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
+use DateTime;
+use DateTimeZone;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -44,7 +46,7 @@ class Post
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime('now', new DateTimeZone('Europe/Paris'));
     }
 
     #[ORM\PrePersist]

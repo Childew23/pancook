@@ -49,12 +49,15 @@
 					{% endif %}
 				</ul>
 			</div>
+		</div>
+	</nav>
+	{% block content %}
+		<div class="container">
 			{% for message in app.flashes('success') %}
 				<div class="alert alert-success" role="alert">{{ message }}</div>
 			{% endfor %}
 		</div>
-	</nav>
-	{% block content %}{% endblock %}
+	{% endblock %}
 	<footer class="border-top">
 		<div class="container px-4 px-lg-5">
 			<div class="row gx-4 gx-lg-5 justify-content-center">
