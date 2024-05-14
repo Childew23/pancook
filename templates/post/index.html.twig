@@ -32,7 +32,7 @@
 							<img src="{{ post.image }}" alt="" style="width: 100%">
 							<h3 class="post-subtitle">{{ post.content | u.truncate(150, '...') | raw }}</h3>
 						</a>
-						<p class="post-meta">Ecrit par {{ post.user.email }} {{ post.createdAt | ago }} - Classé dans {{ post.category.name }}
+						<p class="post-meta">Ecrit par {{ post.user.email }} - le {{ post.createdAt | date('d/m/Y à H:i') }} - Classé dans {{ post.category.name }}
 					</div>
 					<hr>
 				{% endfor %}
