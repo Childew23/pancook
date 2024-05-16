@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
 class PostController extends AbstractController
 {
     #[Route('/', name: 'home')]
@@ -23,7 +24,8 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/post/{id}', name: 'post_view', methods: ["GET"], requirements: ['id' => '\d+'], priority: 10)]
+    // #[Route('/post/{id}', name: 'post_view', methods: ["GET"], requirements: ['id' => '\d+'])]
+    #[Route('/post/{slug}', name: 'post_view', methods: ["GET"])]
     public function post_view(Post $post): Response
     {
         return $this->render('post/post.html.twig', [
@@ -33,7 +35,7 @@ class PostController extends AbstractController
 
     #[Route('/post/add', name: 'post_add')]
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
-    {
+    {   
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
 

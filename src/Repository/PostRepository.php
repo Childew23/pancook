@@ -3,8 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Post;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Post>
@@ -24,8 +24,7 @@ class PostRepository extends ServiceEntityRepository
         ->orderBy('p.createdAt', 'DESC')
         ->setMaxResults($nb)
         ->getQuery()
-        ->getResult()
-    ;
+        ->getResult();
     }
 
     //    /**

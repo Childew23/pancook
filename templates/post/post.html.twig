@@ -14,7 +14,7 @@
 						<span class="meta">
 							Publié par
 							<a href="#">{{ post.user.email }}</a>
-							{{ post.createdAt | ago }}
+							le {{ post.createdAt | date('d/m/Y à H:i') }}
 							- Classé dans
 							{{ post.category.name }}
 						</span>
