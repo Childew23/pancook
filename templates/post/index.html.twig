@@ -34,7 +34,9 @@
 						</a>
 						<p class="post-meta">Ecrit par {{ post.user.email }} - le {{ post.createdAt | date('d/m/Y à H:i') }} - Classé dans {{ post.category.name }}
 					</div>
-					<hr>
+					{% if not loop.last %}
+						<hr>
+					{% endif %}
 				{% endfor %}
 
 				<!-- Pager-->
