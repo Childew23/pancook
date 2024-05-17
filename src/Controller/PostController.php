@@ -24,7 +24,6 @@ class PostController extends AbstractController
         ]);
     }
 
-    // #[Route('/post/{id}', name: 'post_view', methods: ["GET"], requirements: ['id' => '\d+'])]
     #[Route('/post/{slug}', name: 'post_view', methods: ["GET"])]
     public function post_view(Post $post): Response
     {
@@ -33,7 +32,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/post/add', name: 'post_add')]
+    #[Route('/post/add', name: 'post_add', priority:10)]
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
     {   
         $post = new Post();
@@ -53,4 +52,7 @@ class PostController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+
+
 }
