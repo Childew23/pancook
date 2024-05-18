@@ -6,6 +6,7 @@ use App\Entity\Post;
 use App\Form\PostType;
 use App\Repository\PostRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -15,9 +16,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class PostController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(PostRepository $postRepository): Response
+    public function index(PostRepository $postRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
-        $posts = $postRepository->findPublished();
+        $data = $postRepository->findPublished();
+        $posts = $paginatorInterface->paginate($data, $request->query->getInt('page', 1), 2);
+
         return $this->render('post/index.html.twig', [
             'controller_name' => 'PostController',
             'posts' => $posts

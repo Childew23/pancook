@@ -40,8 +40,8 @@
 				{% endfor %}
 
 				<!-- Pager-->
-				<div class="d-flex justify-content-end mb-4">
-					<a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
+				<div class="d-flex justify-content-center mb-4">
+					{{ knp_pagination_render(posts) }}
 				</div>
 			</div>
 		</div>
