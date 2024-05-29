@@ -10,6 +10,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
@@ -34,6 +35,7 @@ class PostController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route('/post/add', name: 'post_add', priority:10)]
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
     {   
@@ -54,7 +56,4 @@ class PostController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
-
 }
