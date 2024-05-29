@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use DateTimeZone;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\CommentRepository;
@@ -31,7 +32,7 @@ class Comment
 
     public function __construct()
     {
-        $this->createdAt = new \DateTime('now', new DateTimeZone('Europe/Paris'));
+        $this->createdAt = new DateTimeImmutable('now', new DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int

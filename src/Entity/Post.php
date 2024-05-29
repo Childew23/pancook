@@ -50,6 +50,7 @@ class Post
      * @var Collection<int, Comment>
      */
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'Post', orphanRemoval: true)]
+    #[ORM\OrderBy(['id' => 'DESC'])]
     private Collection $comments;
 
     public function __construct()
