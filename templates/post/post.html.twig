@@ -45,8 +45,6 @@
 							<h2>Les commentaires de cet article :</h2>
 							<hr>
 							{% for comment in post.comments %}
-
-
 								<div class="mt-3">
 									<p>{{ comment.content | raw }}
 										{% if (app.user == comment.user) or (is_granted("ROLE_ADMIN")) %}
