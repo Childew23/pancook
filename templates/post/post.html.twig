@@ -27,6 +27,11 @@
 	</header>
 
 	<!-- Post Content-->
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success container">
+			{{ message }}
+		</div>
+	{% endfor %}
 	<article class="mb-4">
 		<div class="container px-4 px-lg-5">
 			<div class="row gx-4 gx-lg-5 justify-content-center">
@@ -36,19 +41,31 @@
 
 					<div class="my-5">
 						{% if app.user %}
-							{{ form(form) }}
-						{% endif %}
-						<h2>Les commentaires de cet article :</h2>
-						<hr>
-						{% for comment in post.comments %}
-							<div class="mt-3">
-								<p>{{ comment.content | raw }}</p>
-								<p>{{ comment.user.email }} - le {{ comment.createdAt | date('d/m/Y à H:i') }} </p>
-							</div>
-							{% if not loop.last %}
-								<hr>
-							{% endif %}
-						{% endfor %}
+							{{ form(form) }}{% endif %}
+							<h2>Les commentaires de cet article :</h2>
+							<hr>
+							{% for comment in post.comments %}
+
+
+								<div class="mt-3">
+									<p>{{ comment.content | raw }}
+										{% if (app.user == comment.user) or (is_granted("ROLE_ADMIN")) %}
+											<form name="comment[delete]" method="post" action="{{ path('comment_delete', {'id' : comment.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire')">
+												<input type="hidden" name="_method" value="DELETE">											 
+												<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+												<button type="submit">Supprimer</button>											 
+											</form>
+										{% endif %}
+									</p>
+									<p>{{ comment.user.email }}
+										- le
+										{{ comment.createdAt | date('d/m/Y à H:i') }}
+									</p>
+								</div>
+								{% if not loop.last %}
+									<hr>
+								{% endif %}
+							{% endfor %}
 						</div>
 					</div>
 

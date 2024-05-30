@@ -43,6 +43,9 @@ class PostController extends AbstractController
             $em->persist($comment);
             $em->flush();
 
+            $this->addFlash('success', 'Le commentaire a bien été envoyé');
+
+
             return $this->redirectToRoute('post_view', ['slug' => $post->getSlug()]);
         }
 
@@ -53,9 +56,9 @@ class PostController extends AbstractController
     }
 
     #[IsGranted('ROLE_USER')]
-    #[Route('/post/add', name: 'post_add', priority:10)]
+    #[Route('/post/add', name: 'post_add', priority: 10)]
     public function addPost(Request $request, ManagerRegistry $doctrine): Response
-    {   
+    {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
 
