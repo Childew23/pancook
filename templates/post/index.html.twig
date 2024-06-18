@@ -44,7 +44,7 @@
 							{{ post.user.email }}
 							- le
 							{{ post.createdAt | date('d/m/Y à H:i') }}
-							- Classé dans{{ post.category.name }}
+							- Classé dans {{ post.category.name }}
 						</p>
 					</div>
 					{% if not loop.last %}
