@@ -4,6 +4,10 @@
 	Homepage
 {% endblock %}
 
+{% block search_bar %}
+{% include "components/_search.html.twig" %}
+{% endblock %}
+
 {% block content %}
 	<!-- Page Header-->
 	<header class="masthead" style="background-image: url('{{ asset('clean/assets/img/home-bg.jpg') }}')">
