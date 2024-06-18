@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block search_bar %}
-{% include "components/_search.html.twig" %}
+	{% include "components/_search.html.twig" with {
+		form: form ?? null
+	} only %}
 {% endblock %}
 
 {% block content %}
@@ -33,7 +35,6 @@
 
 					{% include "components/_like.html.twig" %}
 
-
 					<div class="post-preview">
 						<a href="{{ path('post_view', {slug: post.slug}) }}">
 							<h2 class="post-title">{{ post.title }}</h2>
@@ -44,7 +45,8 @@
 							{{ post.user.email }}
 							- le
 							{{ post.createdAt | date('d/m/Y à H:i') }}
-							- Classé dans {{ post.category.name }}
+							- Classé dans
+							<a href="{{ path('post_category_view', {slug: post.category.slug}) }}">{{ post.category.name }}</a>
 						</p>
 					</div>
 					{% if not loop.last %}

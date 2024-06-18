@@ -18,24 +18,24 @@ class PostRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Post::class);
     }
- 
-    public function findPublished(int $nb = 5) : array
+
+    public function findPublished(int $nb = 5): array
     {
         return $this->createQueryBuilder('p')
-        ->andWhere('p.active = :active')
-        ->setParameter('active', true)
-        ->orderBy('p.createdAt', 'DESC')
-        ->setMaxResults($nb)
-        ->getQuery()
-        ->getResult();
+            ->andWhere('p.active = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults($nb)
+            ->getQuery()
+            ->getResult();
     }
 
     public function findBySearch(SearchData $searchData): PaginationInterface
     {
         $data = $this->createQueryBuilder('p')
-        ->andWhere('p.active = :active')
-        ->setParameter('active', true)
-        ->orderBy('p.createdAt', 'DESC');
+            ->andWhere('p.active = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.createdAt', 'DESC');
 
         if (!empty($searchData->q)) {
             $data = $data
@@ -44,11 +44,23 @@ class PostRepository extends ServiceEntityRepository
         }
 
         $data = $data
-        ->getQuery()
-        ->getResult();
+            ->getQuery()
+            ->getResult();
 
         $posts = $this->paginatorInterface->paginate($data, $searchData->page, 3);
         return $posts;
+    }
+
+    public function findByCategory($category): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.category = :category')
+            ->setParameter('category', $category)
+            ->andWhere('p.active = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
     }
 
     //    /**

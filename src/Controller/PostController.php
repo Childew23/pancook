@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Form\CommentType;
 use App\Form\PostType;
 use App\Form\SearchType;
 use App\Model\SearchData;
+use App\Repository\CategoryRepository;
 use App\Repository\PostRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
@@ -47,7 +49,7 @@ class PostController extends AbstractController
     }
 
     #[Route('/post/{slug}', name: 'post_view', methods: ["GET", "POST"])]
-    public function post_view(Post $post, Request $request, ManagerRegistry $doctrine): Response
+    public function postView(Post $post, Request $request, ManagerRegistry $doctrine): Response
     {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -69,6 +71,17 @@ class PostController extends AbstractController
         return $this->render('post/post.html.twig', [
             'post' => $post,
             'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/category/{slug}', name: 'post_category_view', methods: ["GET"])]
+    public function postViewByCategory(Category $category, PostRepository $postRepository, PaginatorInterface $paginatorInterface, Request $request): Response
+    {
+        $data = $postRepository->findByCategory($category);
+        $posts = $paginatorInterface->paginate($data, $request->query->getInt('page', 1), 3);
+
+        return $this->render('post/index.html.twig', [
+            'posts' => $posts,
         ]);
     }
 
