@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
 use DateTime;
 use DateTimeZone;
+use Doctrine\ORM\Mapping\JoinTable;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -53,12 +54,17 @@ class Post
     #[ORM\OrderBy(['id' => 'DESC'])]
     private Collection $comments;
 
+    #[ORM\ManyToMany(targetEntity: User::class)]
+    #[JoinTable('user_post_like')]
+    private Collection $likes;
+
 
 
     public function __construct()
     {
         $this->createdAt = new \DateTime('now', new DateTimeZone('Europe/Paris'));
         $this->comments = new ArrayCollection();
+        $this->likes = new ArrayCollection();
     }
 
     #[ORM\PrePersist]
@@ -184,4 +190,30 @@ class Post
         return $this;
     }
 
+
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(User $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+        }
+
+        return $this;
+    }
+
+    public function removeLike(User $like): self
+    {
+        $this->likes->removeElement($like);
+
+        return $this;
+    }
+
+    public function isLikedByUser(User $user): bool
+    {
+        return $this->likes->contains($user);
+    }
 }
