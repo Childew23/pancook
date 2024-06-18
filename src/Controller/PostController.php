@@ -6,6 +6,8 @@ use App\Entity\Comment;
 use App\Entity\Post;
 use App\Form\CommentType;
 use App\Form\PostType;
+use App\Form\SearchType;
+use App\Model\SearchData;
 use App\Repository\PostRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\PaginatorInterface;
@@ -24,8 +26,17 @@ class PostController extends AbstractController
         $data = $postRepository->findPublished();
         $posts = $paginatorInterface->paginate($data, $request->query->getInt('page', 1), 2);
 
+        $searchData = new SearchData();
+        $form = $this->createForm(SearchType::class, $searchData);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            dd($searchData);
+        }
+
         return $this->render('post/index.html.twig', [
-            'posts' => $posts
+            'posts' => $posts,
+            'form' => $form->createView()
         ]);
     }
 
