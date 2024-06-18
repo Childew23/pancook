@@ -26,12 +26,6 @@
 					<li class="nav-item">
 						<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('home') }}">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('page_about') }}">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('page_contact') }}">Contact</a>
-					</li>
 					{% if not is_granted("ROLE_USER") %}
 						<li class="nav-item">
 							<a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('app_register') }}">Register</a>
