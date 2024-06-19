@@ -1,0 +1,12 @@
+<div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+		Catégories
+	</button>
+	<ul class="dropdown-menu">
+		{% for category in categories %}
+			<li>
+				<a class="dropdown-item" href="{{ path('post_category_view', {slug: category.slug}) }}">{{ category.name|capitalize }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
