@@ -184,3 +184,20 @@ form fieldset.mb-3{
     border-color: #004085;
 }
 
+.alert{
+    padding: 2em;
+    border: 1px solid;
+    border-radius: 1em;
+}
+
+.alert-success{
+    border: rgb(0, 132, 0) 1px solid;
+    background-color: rgb(154, 217, 154);
+    color: rgb(0, 66, 0);
+}
+
+.alert-danger{
+    border: rgb(132, 0, 0) 1px solid;
+    background-color: rgb(255, 215, 215);
+    color: rgb(132, 0, 0);
+}

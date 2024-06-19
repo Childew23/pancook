@@ -28,6 +28,9 @@
 						<input type="checkbox" name="active" id="customSwitch{{ post.id }}" data-id="{{ post.id }}" {{ post.active ? 'checked' : null}}>
 					</td>
 					<td>
+						<a href="{{ path('admin_post_detail', {id: post.id}) }}">
+							<i class="fa-solid fa-eye"></i>
+						</a>
 						<a href="{{ path('admin_post_update', {id: post.id}) }}">
 							<i class="fa-solid fa-pen"></i>
 						</a>

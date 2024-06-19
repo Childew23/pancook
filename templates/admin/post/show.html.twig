@@ -1,0 +1,17 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title %}
+	Contenu de l'article
+	{{ post.title }}
+{% endblock %}
+
+{% block content %}
+	<h1>Contenu de l'article "{{ post.title }}"</h1>
+	<div class="button-container">
+		<a href="{{path('admin_post_index')}}">
+			<button>Retourner voir la liste des articles</button>
+		</a>
+	</div>
+	{{ post.content|raw }}
+{% endblock %}

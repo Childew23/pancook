@@ -53,6 +53,7 @@ class AdminController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($category);
             $em->flush();
+            $this->addFlash('success', 'Catégorie ajoutée !');
             return $this->redirectToRoute('admin_category_index');
         }
 
@@ -111,6 +112,7 @@ class AdminController extends AbstractController
         $post->setActive(($post->isActive()) ? false : true);
         $em = $doctrine->getManager();
         $em->flush();
+        
         return new Response("true");
     }
 
@@ -122,11 +124,19 @@ class AdminController extends AbstractController
             $em = $doctrine->getManager();
             $em->remove($post);
             $em->flush();
-            $this->addFlash('success', 'Article supprimée !');
+            $this->addFlash('success', 'Article supprimé !');
         } else {
             $this->addFlash('danger', 'Token absent ou invalide !');
         }
         return $this->redirectToRoute('admin_post_index');
+    }
+
+    #[Route('/post/detail/{id}', name: 'post_detail')]
+    public function detailPost(Post $post): Response
+    {
+        return $this->render('admin/post/show.html.twig', [
+            'post' => $post
+        ]);
     }
 
     #[Route('/post/update/{id}', name: 'post_update')]
@@ -138,6 +148,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $doctrine->getManager();
             $em->flush();
+            $this->addFlash('success', 'Article modifié !');
 
             return $this->redirectToRoute('admin_post_index');
         }
@@ -146,7 +157,7 @@ class AdminController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-    
+
 
     #[Route('/user', name: 'user_index')]
     public function listUser(UserRepository $userRepository): Response
@@ -183,6 +194,7 @@ class AdminController extends AbstractController
             $em = $doctrine->getManager();
             $em->flush();
 
+            $this->addFlash('success', 'Utilisateur modifié !');
             return $this->redirectToRoute('admin_user_index');
         }
 
@@ -191,5 +203,4 @@ class AdminController extends AbstractController
             'user' => $user,
         ]);
     }
-
 }

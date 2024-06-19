@@ -16,9 +16,17 @@
 			<li><a href="{{ path('admin_category_index') }}">Catégories</a></li>
 			<li><a href="{{ path('admin_user_index') }}">Utilisateurs</a></li>
 			<li><a href="{{ path('admin_post_index') }}">Articles</a></li>
+			<hr>
+			<li><a href="{{ path('home') }}">Retourner au blog Pancook</a></li>
 		</ul>
 	</nav>
 	<main>
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success" role="alert">{{ message }}</div>
+		{% endfor %}
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-danger" role="alert">{{ message }}</div>
+		{% endfor %}
 		{% block content %}{% endblock %}
 	</main>
 
