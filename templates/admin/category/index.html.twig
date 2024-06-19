@@ -1,0 +1,47 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title %}
+	Liste des catégories
+{% endblock %}
+
+{% block content %}
+	<h1>Gestion des catégories</h1>
+	<div class="button-container">
+		<a href="{{path('admin_category_add')}}">
+			<button>Ajouter une catégorie</button>
+		</a>
+	</div>
+
+	<table class="admin-table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Parent</th>
+				<th>Slug</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for category in categories %}
+				<tr>
+					<td>{{ category.id }}</td>
+					<td>{{ category.name|capitalize }}</td>
+					<td>{{ category.parent }}</td>
+					<td>{{ category.slug }}</td>
+					<td>
+						<a href="{{ path('admin_category_update', {id: category.id}) }}">
+							<i class="fa-solid fa-pen"></i> 
+						</a>
+
+						<a href="{{ path('admin_category_delete', {id: category.id, _csrf_token: csrf_token('delete')}) }}" onclick="return confirm('Suppression catégorie ?')">
+							<i class="fa-solid fa-trash"></i>
+						</a>
+
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

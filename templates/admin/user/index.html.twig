@@ -1,0 +1,49 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title %}
+	Liste des utilisateurs
+{% endblock %}
+{% block content %}
+	<h1>Gestion des utilisateurs</h1>
+
+	<table class="admin-table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Rôles</th>
+				<th>IsVerified</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.email }}</td>
+					<td>
+						[
+						{% for role in user.roles %}
+							{{ role }}
+							{% if not loop.last %},
+							{% endif %}
+						{% endfor %}
+						]
+					</td>
+					<td>
+						<input type="checkbox" name="verified" {{ user.IsVerified ? 'checked' : null}} disabled>
+					</td>
+					<td>
+						<a href="{{ path('admin_user_update', {id: user.id} ) }}">
+							<i class="fa-solid fa-pen"></i>
+						</a>
+						<a href="{{ path('admin_user_delete', {id: user.id, _csrf_token: csrf_token('delete')}) }}" onclick="return confirm('Suppression utilisateur ?')">
+							<i class="fa-solid fa-trash"></i>
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -18,6 +18,12 @@ class CategoryType extends AbstractType
             ->add('name', TextType::class, [
                 "label" => "Nom de la catégorie",
             ])
+            ->add('parent', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'placeholder' => 'Sélectionner',
+                'required' => false,
+            ])
             ->add('Valider', SubmitType::class)
         ;
     }

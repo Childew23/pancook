@@ -46,6 +46,7 @@ class Category
     }
 
     #[ORM\PrePersist]
+    #[ORM\PreUpdate]
     public function prePersist()
     {
         $this->slug = (new Slugify())->slugify($this->name);

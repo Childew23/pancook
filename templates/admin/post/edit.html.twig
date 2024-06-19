@@ -1,0 +1,14 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title %}
+	Modification d'un article
+{% endblock %}
+
+{% block content %}
+	<h1>Modification d'un article</h1>
+	<div class="button-container">
+		<a href="{{path('admin_post_index')}}"><button>Retourner voir la liste des articles</button></a>
+	</div>
+	{{ form(form) }}
+{% endblock %}

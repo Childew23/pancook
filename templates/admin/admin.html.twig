@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+	<link href="{{ asset('admin/css/style.css')}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block head_javascripts %}
+	<!-- Font Awesome icons (free version)-->
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block body %}
+	<nav>
+		<a href="{{ path('admin_home') }}"><h2>Pancook</h2></a>
+		<ul>
+			<li><a href="{{ path('admin_category_index') }}">Catégories</a></li>
+			<li><a href="{{ path('admin_user_index') }}">Utilisateurs</a></li>
+			<li><a href="{{ path('admin_post_index') }}">Articles</a></li>
+		</ul>
+	</nav>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
+
+{% endblock %}

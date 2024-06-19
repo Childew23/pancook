@@ -1,0 +1,15 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title %}
+	Modification d'un utilisateur
+{% endblock %}
+
+{% block content %}
+	<h1>Modification d'un utilisateur</h1>
+	<div class="button-container">
+		<a href="{{path('admin_user_index')}}"><button>Retourner voir la liste des utilisateurs</button></a>
+	</div>
+	<p>Email : {{ user.email }}</p>
+	{{ form(form) }}
+{% endblock %}
