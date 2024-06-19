@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
-use App\Entity\Post;
-use App\Form\PostType;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use Doctrine\Persistence\ManagerRegistry;
