@@ -22,13 +22,6 @@ a:hover{
     color: #F7AC32;
 }
 
-#logoNav,
-.navbar ul {
-    width: 10em;
-    flex-grow: 1;
-    padding-left: 1em;
-}
-
 .btn-primary {
     background-color: #FFB100;
     border: #FFB100;
@@ -38,12 +31,20 @@ button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
 }
 
 
+
 .navbar {
     padding: 1em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(255, 255, 255);
+}
+
+#logoNav,
+.navbar ul {
+    width: 10em;
+    flex-grow: 1;
+    padding-left: 1em;
 }
 
 .container-fluid>form {
@@ -160,11 +161,11 @@ aside {
 }
 
 .post-preview .post-title {
-    font-size: 1.8em;
+    font-size: 1.7em;
     margin-bottom: 10px;
 }
 
-.like{
+.like-heart{
     margin-bottom: 1em;
 }
 
