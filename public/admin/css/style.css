@@ -46,7 +46,7 @@ a:hover{
     color: #004085;
 }
 
-nav li a:hover{
+nav a:hover{
     background-color: #adadad;
     padding-left: 30px;
     color: inherit;
