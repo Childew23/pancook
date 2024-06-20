@@ -18,12 +18,15 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
+            ->add('title', TextType::class,[
+                "label" => "Titre de l'article",
+            ])
             ->add('content', CKEditorType::class,[
                 "label" => "Contenu",
             ])
             ->add('image', TextType::class)
             ->add('category', EntityType::class, [
+                "label" => "Catégorie de l'article",
                 'class' => Category::class
             ])
             ->add('Valider', SubmitType::class)

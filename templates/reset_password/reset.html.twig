@@ -1,12 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'pancook.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}Réinitialiser votre mot de passe
+{% endblock %}
 
 {% block body %}
-    <h1>Reset your password</h1>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+	<main class="container">
+		<h1>Réinitialiser votre mot de passe</h1>
+		{{ form_start(resetForm) }}
+		{{ form_row(resetForm.plainPassword) }}
+		<button class="btn btn-primary">Réinitialiser votre mot de passe</button>
+		{{ form_end(resetForm) }}
+	</main>
+
 {% endblock %}

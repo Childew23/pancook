@@ -1,0 +1,12 @@
+<article class="comment mt-3">
+	<p>{{ comment.content | raw }}</p>
+	<p class="comment-user">
+		<small>{{ comment.user.email }}
+			- le
+			{{ comment.createdAt | date('d/m/Y à H:i') }}
+        </small>
+	</p>
+	{% if (app.user == comment.user) or (is_granted("ROLE_ADMIN")) %}
+		{% include "components/_deleteComment.html.twig" %}
+	{% endif %}
+</article>

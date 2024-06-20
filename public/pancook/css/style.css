@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@font-face {
+    font-family: 'VisbyRoundCF';
+    src: url('/pancook/assets/font/VisbyRoundCF-Bold.otf');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+a{
+    color: #FFB100;
+    text-decoration: none;
+}
+a:hover{
+    color: #F7AC32;
+}
+
+#logoNav,
+.navbar ul {
+    width: 10em;
+    flex-grow: 1;
+    padding-left: 1em;
+}
+
+.btn-primary {
+    background-color: #FFB100;
+    border: #FFB100;
+}
+button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
+    background-color: #F7AC32 !important;
+}
+
+
+.navbar {
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.container-fluid>form {
+    width: 40%;
+    padding-left: 5em;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+}
+
+.navbar ul li {
+    padding: 0 1em;
+}
+
+.navbar ul li a {
+    color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    color: #FFB100;
+}
+
+
+.page-item.active > .page-link{
+    background-color: #FFB100;
+    border: #FFB100 1px solid;
+}
+.page-item.active > .page-link:hover{
+    color: white;
+}
+.page-link{
+    color: rgb(128, 128, 128);
+}
+.page-link:hover{
+    color: #FFB100;
+}
+
+
+.header, .header-post {
+    height: 60vh; 
+    min-height: 300px; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative; 
+    transition: background-image 1s ease-in-out;
+}
+
+.header.cooking{
+    background-image: url('https://www.allrecipes.com/thmb/WqWggh6NwG-r8PoeA3OfW908FUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg');
+}
+
+.header h1 {
+    margin: 0;
+    font-size:5em;
+    font-family: 'VisbyRoundCF';
+    color: #FFB100;
+}
+
+.header p {
+    margin: 2em 0 0 0;
+    font-size: 2em;
+}
+
+.header .overlay,.header-post .post-heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+main.container{
+    margin-top: 1em;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+aside {
+    padding: 1em;
+    margin-left: 20px;
+    align-self: flex-start; 
+}
+
+.main-content{
+    width: 50%;
+    margin-top: 3em;
+}
+
+.post-preview {
+    margin-bottom: 20px;
+}
+
+.post-preview img {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-preview .post-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.like{
+    margin-bottom: 1em;
+}
+
+.post-preview .post-subtitle {
+    font-size: 1.5em;
+    color: #000000;
+    margin-top: 0.5em;
+}
+
+.post-preview a{
+    text-decoration: none;
+    color: #000000;
+    transition: 0.2s;
+}
+
+.post-preview a:hover{
+    color: #FFB100;
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: #999;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #b7b7b7;
+    margin: 20px 0;
+}
+
+.btn-delete{
+    padding: 0;
+}
+.fa-trash{
+    color: red;
+}
+.comment{
+    border: #ddddddb5 1px solid;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 13px 10px 15px -3px rgba(0,0,0,0.1);
+}
+.comment-user{
+    color: #F7AC32;
+}
+
+
+footer.footer{
+    text-align: center;
+    border-top: 1px solid rgba(202, 202, 202, 0.212);
+    padding-top: 1em;
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        height: 50vh;
+    }
+
+    .header h1 {
+        font-size: 4em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .main-content{
+        width: 70%;
+    }
+
+    .like{
+        width: 2em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #logoNav{
+        width: 8em;
+    }
+    .container-fluid>form {
+        width: 50%;
+        padding-left: 1em;
+    }
+    .navbar-toggler{
+        font-size: 1em;
+    }
+
+    .main-content{
+        width: 80%;
+    }
+
+    .post-preview .post-title {
+        font-size: 1.5em;
+    }
+
+    .post-preview .post-subtitle {
+        font-size: 1.2em;
+    }
+}
+

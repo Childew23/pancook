@@ -1,4 +1,4 @@
-import Like from "./clean/js/like.js";
+import Like from "./pancook/js/like.js";
 
 document.addEventListener('DOMContentLoaded', () => {
 

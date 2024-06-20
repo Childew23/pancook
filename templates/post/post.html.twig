@@ -1,76 +1,44 @@
-{% extends 'clean.html.twig' %}
+{% extends 'pancook.html.twig' %}
 
 {% block title %}
+	Pancook -
 	{{ post.title }}
 {% endblock %}
 
 {% block content %}
-	<!-- Page Header-->
-	<header class="masthead" style="background-image: url({{ post.image }})">
-		<div class="container position-relative px-4 px-lg-5">
-			<div class="row gx-4 gx-lg-5 justify-content-center">
-				<div class="col-md-10 col-lg-8 col-xl-7">
-					<div class="post-heading">
-						<h1>{{ post.title }}</h1>
-						<span class="meta">
-							Publié par
-							<a href="#">{{ post.user.email }}</a>
-							le
-							{{ post.createdAt | date('d/m/Y à H:i') }}
-							- Classé dans
-							{{ post.category.name }}
-						</span>
-					</div>
-				</div>
-			</div>
+	<header class="header-post">
+		<div class="post-heading">
+			<h1>{{ post.title }}</h1>
+			<h6 class="meta">Publié par
+				<a href="#">{{ post.user.email }}</a>
+				le
+				{{ post.createdAt | date('d/m/Y à H:i') }}
+				- Classé dans
+				<a href="{{ path('post_category_view', {slug: post.category.slug}) }}">{{ post.category.name }}</a>
+			</h6>
 		</div>
 	</header>
 
-	<!-- Post Content-->
-	{% for message in app.flashes('success') %}
-		<div class="alert alert-success container">
-			{{ message }}
-		</div>
-	{% endfor %}
-
-	<article class="mb-4">
-		<div class="container px-4 px-lg-5">
-			<div class="row gx-4 gx-lg-5 justify-content-center">
-				<div class="col-md-10 col-lg-8 col-xl-7">
-					<p>{{ post.content | raw }}</p>
-
-
-					<div class="my-5">
-						{% if app.user %}
-							{{ form(form) }}{% endif %}
-							<h2>Les commentaires de cet article :</h2>
+	<main class="container mt-5" data-images='["{{ post.image }}"]'>
+		<article>{{ post.content | raw }}</article>
+		<section class="my-5 comments">
+			{% if app.user %}
+				{{ form(form) }}{% endif %}
+				<h2>Les commentaires de cet article :</h2>
+				{% if post.comments|length == 0 %}
+					<p>Aucun commentaire pour le moment.</p>
+				{% else %}
+					{% for comment in post.comments %}
+						{% include "components/_comment.html.twig" %}
+						{% if not loop.last %}
 							<hr>
-							{% for comment in post.comments %}
-								<div class="mt-3">
-									<p>{{ comment.content | raw }}
-										{% if (app.user == comment.user) or (is_granted("ROLE_ADMIN")) %}
-											<form name="comment[delete]" method="post" action="{{ path('comment_delete', {'id' : comment.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire')">
-												<input type="hidden" name="_method" value="DELETE">
-												<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
-												<button type="submit">Supprimer</button>
-											</form>
-										{% endif %}
-									</p>
-									<p>
-										{{ comment.user.email }}
-										- le
-										{{ comment.createdAt | date('d/m/Y à H:i') }}
-									</p>
-								</div>
-								{% if not loop.last %}
-									<hr>
-								{% endif %}
-							{% endfor %}
-						</div>
-					</div>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+			</section>
+		</main>
+	{% endblock %}
 
-				</div>
-
-			</div>
-		</article>
+	{% block final_javascripts %}
+		<script src="/pancook/js/postBg.js"></script>
 	{% endblock %}

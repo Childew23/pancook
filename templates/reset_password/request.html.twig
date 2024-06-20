@@ -1,40 +1,32 @@
-{% extends 'clean.html.twig' %}
+{% extends 'pancook.html.twig' %}
 
 {% block title %}Reset your password{% endblock %}
 
 {% block content %}
-	<!-- Page Header-->
-	<header class="masthead" style="background-image: url('{{ asset('clean/assets/img/home-bg.jpg') }}')">
+	<header class="header cooking">
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success container" role="alert">{{ message }}</div>
 		{% endfor %}
-		<div class="container position-relative px-4 px-lg-5">
-			<div class="row gx-4 gx-lg-5 justify-content-center">
-				<div class="col-md-10 col-lg-8 col-xl-7">
-					<div class="site-heading">
-						<h1>Clean Blog</h1>
-						<span class="subheading">A Blog Theme by Start Bootstrap</span>
-					</div>
-				</div>
-			</div>
+		<div class="overlay">
+			<h1>Pancook</h1>
+			<h6>Blog de cuisine pour amateur</h6>
 		</div>
 	</header>
-    <div class="container">
+    <main class="container">
         {% for flash_error in app.flashes('reset_password_error') %}
             <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
         {% endfor %}
-        <h1>Reset your password</h1>
+        <h2>Réinitialiser votre mot de passe</h2>
 
         {{ form_start(requestForm) }}
             {{ form_row(requestForm.email) }}
-            <div>
+            <p>
                 <small>
-                    Enter your email address, and we will send you a
-                    link to reset your password.
+                    Entrer votre adresse mail et nous allons vous envoyer un lien pour le réinitialiser.
                 </small>
-            </div>
+            </p>
 
-            <button class="btn btn-primary">Send password reset email</button>
+            <button class="btn btn-primary">Envoyer</button>
         {{ form_end(requestForm) }}
-    </div>
+    </main>
 {% endblock %}

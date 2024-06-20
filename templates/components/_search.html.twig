@@ -1,5 +1,5 @@
 {% if form %}
-	{{ form_start(form) }}
+	{{ form_start(form, {'attr' : {'class': 'd-flex'}}) }}
 	<div class="input-group">
 		{{ form_widget(form.q, {'attr' : {'class': 'form-control'}}) }}
 		<button type="submit" class="btn btn-primary">

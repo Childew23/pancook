@@ -1,7 +1,7 @@
-{% extends 'clean.html.twig' %}
+{% extends 'pancook.html.twig' %}
 
 {% block title %}
-	Homepage
+	Page d'accueil
 {% endblock %}
 
 {% block search_bar %}
@@ -11,58 +11,43 @@
 {% endblock %}
 
 {% block content %}
-	<!-- Page Header-->
-	<header class="masthead" style="background-image: url('{{ asset('clean/assets/img/home-bg.jpg') }}')">
+	<header class="header">
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success container" role="alert">{{ message }}</div>
 		{% endfor %}
-		<div class="container position-relative px-4 px-lg-5">
-			<div class="row gx-4 gx-lg-5 justify-content-center">
-				<div class="col-md-10 col-lg-8 col-xl-7">
-					<div class="site-heading">
-						<h1>Clean Blog</h1>
-						<span class="subheading">A Blog Theme by Start Bootstrap</span>
-					</div>
-				</div>
-			</div>
+		<div class="overlay">
+			<h1>Pancook</h1>
+			<h6>Blog de cuisine pour amateur</h6>
 		</div>
 	</header>
-	<!-- Main Content-->
 
-	{% include "components/_dropdown.html.twig" with {
-		categories: allCategories
-	} only %}
-	<div class="container px-4 px-lg-5">
-		<div class="row gx-4 gx-lg-5 justify-content-center">
-			<div class="col-md-10 col-lg-8 col-xl-7">
+	<main class="container" data-images='[{% for post in posts %}"{{ post.image }}"{% if not loop.last %}, {% endif %}{% endfor %}]'>
+		<aside>
+			{% include "components/_dropdown.html.twig" with {
+					categories: allCategories
+				} only %}
+		</aside>
+		<section class="content-wrapper">
+			<div class="main-content">
 				{% for post in posts %}
-
-					{% include "components/_like.html.twig" %}
-
-					<div class="post-preview">
-						<a href="{{ path('post_view', {slug: post.slug}) }}">
-							<h2 class="post-title">{{ post.title }}</h2>
-							<img src="{{ post.image }}" alt="Image de l'article {{ post.title }}" style="width:100%">
-							<h3 class="post-subtitle">{{ post.content | u.truncate(24, '...') | raw }}</h3>
-						</a>
-						<p class="post-meta">Ecrit par
-							{{ post.user.email }}
-							- le
-							{{ post.createdAt | date('d/m/Y à H:i') }}
-							- Classé dans
-							<a href="{{ path('post_category_view', {slug: post.category.slug}) }}">{{ post.category.name }}</a>
-						</p>
-					</div>
+					{% include "components/_post.html.twig" %}
 					{% if not loop.last %}
 						<hr>
 					{% endif %}
 				{% endfor %}
-
-				<!-- Pager-->
-				<div class="d-flex justify-content-center mb-4">
-					{{ knp_pagination_render(posts) }}
-				</div>
 			</div>
+		</section>
+
+
+		<div class="d-flex justify-content-center mb-3">
+			{{ knp_pagination_render(posts) }}
 		</div>
-	</div>
+	</main>
+{% endblock %}
+
+
+{% block final_javascripts %}
+	<script src="/app.js" type="module"></script>
+	<script src="/pancook/js/like.js"  type="module"></script>
+	<script src="/pancook/js/changeBg.js"></script>
 {% endblock %}

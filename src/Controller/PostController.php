@@ -24,7 +24,7 @@ class PostController extends AbstractController
     public function index(PostRepository $postRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
         $data = $postRepository->findPublished();
-        $posts = $paginatorInterface->paginate($data, $request->query->getInt('page', 1), 2);
+        $posts = $paginatorInterface->paginate($data, $request->query->getInt('page', 1), 3);
 
         $searchData = new SearchData();
         $form = $this->createForm(SearchType::class, $searchData);

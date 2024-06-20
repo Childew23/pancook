@@ -1,29 +1,17 @@
-    {% extends 'clean.html.twig' %}
+{% extends 'pancook.html.twig' %}
 
-    {% block title %}Ajout d'un article{% endblock %}
-    
-    {% block body %}
-            <!-- Page Header -->
-            <header class="masthead" style="background-image: url('{{ asset('clean/assets/img/home-bg.jpg') }}')">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-10 mx-auto">
-                            <div class="site-heading">
-                                <h1>Clean Blog</h1>
-                                <span class="subheading">A Blog Theme by Start Bootstrap</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- Main Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
-                        <h1>Ajout d'un article</h1>
-                        {{ form(form) }}
-                    </div>
-                </div>
-            </div>
-    {% endblock %}
+{% block title %}Ajout d'un article{% endblock %}
+
+{% block content %}
+	<header class="header cooking">
+		<div class="overlay">
+			<h1>Pancook</h1>
+			<h6>Blog de cuisine pour amateur</h6>
+		</div>
+	</header>
+
+	<main class="container">
+		<h2>Ajout d'un article</h2>
+		{{ form(form) }}
+    </main>
+{% endblock %}
