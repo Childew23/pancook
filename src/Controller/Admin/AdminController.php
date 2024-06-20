@@ -203,4 +203,14 @@ class AdminController extends AbstractController
             'user' => $user,
         ]);
     }
+
+    #[Route('/user/detail/{id}', name: 'user_detail')]
+    public function detailUser(User $user, UserRepository $userRepository): Response
+    {
+        $likes = $userRepository->getLikes($user->getId());
+        return $this->render('admin/user/show.html.twig', [
+            'user' => $user,
+            'likes' => $likes
+        ]);
+    }
 }

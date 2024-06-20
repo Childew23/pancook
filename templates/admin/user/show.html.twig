@@ -1,0 +1,70 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+{% block title %}
+	Pancook - Détail de
+	{{ user.email }}
+{% endblock %}
+
+{% block content %}
+	<h1>Détail de
+		{{ user.email }}</h1>
+
+	<div class="button-container">
+		<a href="{{path('admin_user_index')}}">
+			<button>Retourner voir la liste des utilisateurs</button>
+		</a>
+	</div>
+	<p>Email :
+		{{ user.email }}</p>
+	<p>Rôles : [
+		{% for role in user.roles %}
+			{{ role }}
+			{% if not loop.last %},
+			{% endif %}
+		{% endfor %}
+		]
+	</p>
+	<h2>Article écrit par
+		{{ user.email }}
+		:</h2>
+	{% if user.posts|length == 0 %}
+		<p>{{user.email}}
+			n'a écrit aucun article</p>
+	{% else %}
+		<ul>
+			{% for post in user.posts %}
+				<li><a href="{{ path('admin_post_detail', {id: post.id}) }}">{{ post.title }}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<h2>Commentaire écrit par
+		{{ user.email }}
+		:</h2>
+	{% if user.comments|length == 0 %}
+		<p>{{user.email}}
+			n'a écrit aucun commentaire</p>
+	{% else %}
+		<ul>
+			{% for comment in user.comments %}
+				<h4>{{ comment.content }}</h4>
+				<p>
+					<small>le {{comment.createdAt|date('d/m/Y à H:i')}} dans <a href="{{ path('admin_post_detail', {id: comment.post.id}) }}">{{ comment.post.title }}</a></small>
+				</p>
+			{% endfor %}
+		</ul>
+	{% endif %}
+	<h2>Les articles que l'utilisateur a aimé :</h2>
+	{% if likes|length == 0 %}
+		{{ user.email }} n'a aimé aucun article.
+	{% else %}
+		<ul>
+		{% for post in likes %}
+			<li><a href="{{ path('admin_post_detail', {id: post.id}) }}">{{ post.title }}</li></a>
+		{% endfor %}
+		</ul>
+	{% endif %}
+	
+	
+{% endblock %}

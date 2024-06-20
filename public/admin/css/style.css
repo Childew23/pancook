@@ -42,9 +42,14 @@ a:visited{
     color: inherit;
 }
 
+a:hover{
+    color: #004085;
+}
+
 nav li a:hover{
     background-color: #adadad;
     padding-left: 30px;
+    color: inherit;
 }
 
 main {

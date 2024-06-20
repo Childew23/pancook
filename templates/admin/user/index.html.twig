@@ -5,6 +5,7 @@
 	Liste des utilisateurs
 {% endblock %}
 {% block content %}
+
 	<h1>Gestion des utilisateurs</h1>
 
 	<table class="admin-table">
@@ -35,6 +36,9 @@
 						<input type="checkbox" name="verified" {{ user.IsVerified ? 'checked' : null}} disabled>
 					</td>
 					<td>
+						<a href="{{ path('admin_user_detail', {id: user.id} ) }}">
+							<i class="fa-solid fa-eye"></i>
+						</a>
 						<a href="{{ path('admin_user_update', {id: user.id} ) }}">
 							<i class="fa-solid fa-pen"></i>
 						</a>

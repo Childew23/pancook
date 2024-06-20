@@ -7,11 +7,48 @@
 {% endblock %}
 
 {% block content %}
-	<h1>Contenu de l'article "{{ post.title }}"</h1>
 	<div class="button-container">
 		<a href="{{path('admin_post_index')}}">
 			<button>Retourner voir la liste des articles</button>
 		</a>
 	</div>
+	<h1>Détail de l'article "{{ post.title }}"</h1>
+
+	<img src="{{ post.image }}" alt="">
+
 	{{ post.content|raw }}
+
+	<p>
+		<small>Ecrit par
+			<a href="{{ path('admin_user_detail', {id: post.user.id} ) }}">{{ post.user.email }}</a>
+			- le
+			{{ post.createdAt|date('d/m/Y à H:i') }}
+			dans la catégorie
+			{{ post.category.name }}</small>
+	</p>
+	<hr>
+	<h2>Les commentaires de l'article :</h2>
+	{% if post.comments|length == 0 %}
+		<p>Aucun commentaire pour cet article.</p>
+	{% else %}
+		{% for comment in post.comments %}
+			<h4>{{ comment.content }}</h4>
+			<p>
+				<small><a href="{{ path('admin_user_detail', {id: comment.user.id} ) }}">{{ comment.user.email }}</a>
+					- le
+					{{comment.createdAt|date('d/m/Y à H:i')}}</small>
+			</p>
+		{% endfor %}
+	{% endif %}
+	<hr>
+	<h2>Les personnes qui ont aimé l'article :</h2>
+	{% if post.likes|length == 0 %}
+		<p>Aucun J'aime sur cet article.</p>
+	{% else %}
+		<ul>
+			{% for user in post.likes %}
+				<li><a href="{{ path('admin_user_detail', {id: user.id} ) }}">{{ user.email }}</a></li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endblock %}
