@@ -18,7 +18,6 @@
 			<tr>
 				<th>Id</th>
 				<th>Nom</th>
-				<th>Parent</th>
 				<th>Slug</th>
 				<th>Actions</th>
 			</tr>
@@ -28,7 +27,6 @@
 				<tr>
 					<td>{{ category.id }}</td>
 					<td>{{ category.name|capitalize }}</td>
-					<td>{{ category.parent }}</td>
 					<td>{{ category.slug }}</td>
 					<td>
 						<a href="{{ path('admin_category_update', {id: category.id}) }}">
