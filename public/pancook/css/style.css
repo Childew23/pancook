@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @font-face {
     font-family: 'VisbyRoundCF';
     src: url('/pancook/assets/font/VisbyRoundCF-Bold.otf');
 }
 
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -14,11 +16,12 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-a{
+a {
     color: #FFB100;
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     color: #F7AC32;
 }
 
@@ -26,11 +29,12 @@ a:hover{
     background-color: #FFB100;
     border: #FFB100;
 }
-button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
+
+button.btn-primary:hover,
+button.btn-primary:active,
+button.btn-primary:focus {
     background-color: #F7AC32 !important;
 }
-
-
 
 .navbar {
     padding: 1em 0;
@@ -42,14 +46,14 @@ button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
 
 #logoNav,
 .navbar ul {
-    width: 10em;
+    width: 8em;
     flex-grow: 1;
     padding-left: 1em;
 }
 
 .container-fluid>form {
-    width: 40%;
-    padding-left: 5em;
+    width: 60%;
+    padding-left: 0;
 }
 
 .navbar ul {
@@ -61,7 +65,8 @@ button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
 }
 
 .navbar ul li {
-    padding: 0 1em;
+    padding: 0;
+    font-size: 0.9em;
 }
 
 .navbar ul li a {
@@ -73,49 +78,52 @@ button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
     color: #FFB100;
 }
 
-
-.page-item.active > .page-link{
+.page-item.active>.page-link {
     background-color: #FFB100;
     border: #FFB100 1px solid;
 }
-.page-item.active > .page-link:hover{
+
+.page-item.active>.page-link:hover {
     color: white;
 }
-.page-link{
+
+.page-link {
     color: rgb(128, 128, 128);
 }
-.page-link:hover{
+
+.page-link:hover {
     color: #FFB100;
 }
 
-
-.header, .header-post {
-    height: 60vh; 
-    min-height: 300px; 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-    position: relative; 
+.header,
+.header-post {
+    height: 50vh;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     transition: background-image 1s ease-in-out;
 }
 
-.header.cooking{
+.header.cooking {
     background-image: url('https://www.allrecipes.com/thmb/WqWggh6NwG-r8PoeA3OfW908FUY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_001-1fa26bcdedc345f182537d95b6cf92d8.jpg');
 }
 
 .header h1 {
     margin: 0;
-    font-size:5em;
+    font-size: 4em;
     font-family: 'VisbyRoundCF';
     color: #FFB100;
 }
 
 .header p {
     margin: 2em 0 0 0;
-    font-size: 2em;
+    font-size: 1em;
 }
 
-.header .overlay,.header-post .post-heading {
+.header .overlay,
+.header-post .post-heading {
     position: absolute;
     top: 0;
     left: 0;
@@ -131,7 +139,7 @@ button.btn-primary:hover, button.btn-primary:active, button.btn-primary:focus{
     padding: 20px;
 }
 
-main.container{
+main.container {
     margin-top: 1em;
 }
 
@@ -143,11 +151,11 @@ main.container{
 aside {
     padding: 1em;
     margin-left: 20px;
-    align-self: flex-start; 
+    align-self: flex-start;
 }
 
-.main-content{
-    width: 50%;
+.main-content {
+    width: 80%;
     margin-top: 3em;
 }
 
@@ -161,27 +169,28 @@ aside {
 }
 
 .post-preview .post-title {
-    font-size: 1.7em;
+    font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-.like-heart{
+.like-heart {
     margin-bottom: 1em;
+    width: 2em;
 }
 
 .post-preview .post-subtitle {
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: #000000;
     margin-top: 0.5em;
 }
 
-.post-preview a{
+.post-preview a {
     text-decoration: none;
     color: #000000;
     transition: 0.2s;
 }
 
-.post-preview a:hover{
+.post-preview a:hover {
     color: #FFB100;
 }
 
@@ -196,66 +205,73 @@ hr {
     margin: 20px 0;
 }
 
-.btn-delete{
+.btn-delete {
     padding: 0;
 }
-.fa-trash{
+
+.fa-trash {
     color: red;
 }
-.comment{
+
+.comment {
     border: #ddddddb5 1px solid;
     padding: 1em;
     border-radius: 10px;
-    box-shadow: 13px 10px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 13px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
-.comment-user{
+
+.comment-user {
     color: #F7AC32;
 }
 
-
-footer.footer{
+footer.footer {
     text-align: center;
     border-top: 1px solid rgba(202, 202, 202, 0.212);
     padding-top: 1em;
 }
 
 
-@media (max-width: 768px) {
-    .header {
-        height: 50vh;
+/* SMALL MOBILES */
+@media (max-width: 320px) {
+    #logoNav {
+        display: none;
     }
 
-    .header h1 {
-        font-size: 4em;
+    .navbar-toggler {
+        font-size: 0.9em;
     }
 
-    .header p {
-        font-size: 1em;
+    .container-fluid>form {
+        width: 60%;
     }
 
-    .main-content{
-        width: 70%;
-    }
-
-    .like{
-        width: 2em;
+    #navbarSupportedContent {
+        margin-top: 1em;
     }
 }
 
-@media only screen and (max-width: 600px) {
-    #logoNav{
-        width: 8em;
+/* MOBILES & TABLETS */
+@media (min-width: 321px) and (max-width: 768px) {
+    #logoNav {
+        width: 7em;
+        padding-left: 0em;
     }
+
     .container-fluid>form {
-        width: 50%;
-        padding-left: 1em;
+        width: 40%;
+        padding-left: 0em;
     }
-    .navbar-toggler{
+
+    .navbar-toggler {
         font-size: 1em;
     }
 
-    .main-content{
-        width: 80%;
+    #navbarSupportedContent {
+        margin-top: 1em;
+    }
+
+    .main-content {
+        width: 70%;
     }
 
     .post-preview .post-title {
@@ -265,5 +281,136 @@ footer.footer{
     .post-preview .post-subtitle {
         font-size: 1.2em;
     }
+
 }
 
+/* LAPTOPS */
+@media (min-width: 769px) {
+    #logoNav {
+        width: 10em;
+    }
+
+    .container-fluid>form {
+        width: 40%;
+        padding-left: 5em;
+    }
+
+    .navbar ul li {
+        padding: 0 1em;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .header {
+        height: 60vh;
+    }
+
+    .header h1 {
+        font-size: 5em;
+    }
+
+    .header p {
+        font-size: 2em;
+    }
+
+    .main-content {
+        width: 50%;
+    }
+
+    .like-heart {
+        width: auto;
+    }
+}
+
+/* LARGE LAPTOPS */
+@media (min-width: 992px) {
+    main.container {
+        margin-top: 1em;
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    aside {
+        padding: 1em;
+        margin-left: 20px;
+        align-self: flex-start;
+    }
+
+    .main-content {
+        width: 50%;
+        margin-top: 3em;
+    }
+
+    .post-preview {
+        margin-bottom: 20px;
+    }
+
+    .post-preview img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .post-preview .post-title {
+        font-size: 1.7em;
+        margin-bottom: 10px;
+    }
+
+    .like-heart {
+        margin-bottom: 1em;
+    }
+
+    .post-preview .post-subtitle {
+        font-size: 1.5em;
+        color: #000000;
+        margin-top: 0.5em;
+    }
+
+    .post-preview a {
+        text-decoration: none;
+        color: #000000;
+        transition: 0.2s;
+    }
+
+    .post-preview a:hover {
+        color: #FFB100;
+    }
+
+    .post-meta {
+        font-size: 0.9em;
+        color: #999;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid #b7b7b7;
+        margin: 20px 0;
+    }
+
+    .btn-delete {
+        padding: 0;
+    }
+
+    .fa-trash {
+        color: red;
+    }
+
+    .comment {
+        border: #ddddddb5 1px solid;
+        padding: 1em;
+        border-radius: 10px;
+        box-shadow: 13px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-user {
+        color: #F7AC32;
+    }
+
+    footer.footer {
+        text-align: center;
+        border-top: 1px solid rgba(202, 202, 202, 0.212);
+        padding-top: 1em;
+    }
+}
