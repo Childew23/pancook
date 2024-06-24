@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'VisbyRoundCF';
+    src: url('/pancook/assets/font/VisbyRoundCF-Bold.otf');
+}
+
+body{
+    background: #264653;
+}
+
+h1{
+    font-family: 'VisbyRoundCF';
+    color: #FEEAA1;
+}
+
+h2{
+    color: #D6955B;
+}
+
+.btn{
+    margin-top: 1em;
+    background-color: #18534F;
+    border: #226D68 1px solid;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background-color: #226D68;
+    border: #18534F 1px solid;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+}
+
+.container-fluid{
+    height: 100vh;
+}
+
+#logoNav{
+    width: 20%;
+    height: auto;
+    margin-bottom: 1em;
+}
