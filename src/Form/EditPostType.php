@@ -5,11 +5,12 @@ namespace App\Form;
 use App\Entity\Post;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
 class EditPostType extends AbstractType
@@ -22,6 +23,9 @@ class EditPostType extends AbstractType
                 'choice_label' => 'name',
                 'label' => 'Catégorie',
                 'placeholder' => 'Sélectionner une catégorie',
+            ])
+            ->add('content', CKEditorType::class,[
+                "label" => "Contenu",
             ])
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
