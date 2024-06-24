@@ -15,6 +15,7 @@
 	<h1>Détail de l'article "{{ post.title }}"</h1>
 
 	<img src="{{ post.image }}" alt="">
+	<img src="{{ asset('/pancook/img/posts/' ~ post.imageName) }}" alt="">
 
 	{{ post.content|raw }}
 

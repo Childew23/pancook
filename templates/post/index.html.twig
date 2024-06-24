@@ -19,10 +19,10 @@
 			<h6>Blog de cuisine pour amateur</h6>
 		</div>
 	</header>
-
+	
 	{# MAIN #}
 	<main
-		class="container" data-images='[{% for post in posts %}"{{ post.image }}"{% if not loop.last %}, {% endif %}{% endfor %}]'>
+		class="container" data-images='[{% for post in posts %}"{{ post.imageName }}"{% if not loop.last %}, {% endif %}{% endfor %}]'>
 		{# DROPDOWN CATEGORIES #}
 		<aside>
 			{% include "components/_dropdown.html.twig" with {

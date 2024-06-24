@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
 
     function changeBackground() {
-        header.style.backgroundImage = `url(${images[currentIndex]})`;
+        header.style.backgroundImage = `url(/pancook/img/posts/${images[currentIndex]})`;
         currentIndex = (currentIndex + 1) % images.length;
     }
 

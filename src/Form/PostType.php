@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Post;
-use App\Entity\User;
 use App\Entity\Category;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
@@ -12,6 +11,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class PostType extends AbstractType
 {
@@ -24,7 +25,14 @@ class PostType extends AbstractType
             ->add('content', CKEditorType::class,[
                 "label" => "Contenu",
             ])
-            ->add('image', TextType::class)
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'delete_label' => 'Supprimer',
+                'download_uri' => true,
+                'image_uri' => true,
+                'asset_helper' => true,
+            ])
             ->add('category', EntityType::class, [
                 "label" => "Catégorie de l'article",
                 'class' => Category::class

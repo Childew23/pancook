@@ -19,7 +19,7 @@
 		</div>
 	</header>
 
-	<main class="container mt-5" data-image='{{ post.image }}'>
+	<main class="container mt-5" data-image='{{ post.imageName }}'>
 		<article>{{ post.content | raw }}</article>
 		<section class="my-5 comments">
 			{% if app.user %}
