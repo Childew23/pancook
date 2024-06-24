@@ -9,6 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+
 
 class EditPostType extends AbstractType
 {
@@ -20,6 +22,16 @@ class EditPostType extends AbstractType
                 'choice_label' => 'name',
                 'label' => 'Catégorie',
                 'placeholder' => 'Sélectionner une catégorie',
+            ])
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'delete_label' => 'Supprimer',
+                //'download_label' => '...',
+                'download_uri' => true,
+                'image_uri' => true,
+                //'imagine_pattern' => '...',
+                'asset_helper' => true,
             ])
             ->add('Valider', SubmitType::class)
             ;
