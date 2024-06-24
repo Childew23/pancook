@@ -14,8 +14,9 @@
 	</header>
 
 	{% for message in app.flashes('success') %}
-			<div class="alert alert-success container" role="alert">{{ message }}</div>
-		{% endfor %}
+		<div class="alert alert-success container" role="alert">{{ message }}</div>
+	{% endfor %}
+	
     <main class="container">
         <h2>Création de compte</h2>
 

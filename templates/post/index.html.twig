@@ -1,9 +1,10 @@
 {% extends 'pancook.html.twig' %}
 
 {% block title %}
-	Page d'accueil
+	Pancook - Page d'accueil
 {% endblock %}
 
+{# SEARCH BAR #}
 {% block search_bar %}
 	{% include "components/_search.html.twig" with {
 		form: form ?? null
@@ -11,43 +12,43 @@
 {% endblock %}
 
 {% block content %}
+	{# HEADER #}
 	<header class="header">
-		{% for message in app.flashes('success') %}
-			<div class="alert alert-success container" role="alert">{{ message }}</div>
-		{% endfor %}
 		<div class="overlay">
 			<h1>Pancook</h1>
 			<h6>Blog de cuisine pour amateur</h6>
 		</div>
 	</header>
 
-	<main class="container" data-images='[{% for post in posts %}"{{ post.image }}"{% if not loop.last %}, {% endif %}{% endfor %}]'>
+	{# MAIN #}
+	<main
+		class="container" data-images='[{% for post in posts %}"{{ post.image }}"{% if not loop.last %}, {% endif %}{% endfor %}]'>
+		{# DROPDOWN CATEGORIES #}
 		<aside>
 			{% include "components/_dropdown.html.twig" with {
 					categories: allCategories
 				} only %}
 		</aside>
-		<section class="content-wrapper">
+
+		{# POSTS #}
+		<div class="content-wrapper">
 			<div class="main-content">
 				{% for post in posts %}
 					{% include "components/_post.html.twig" %}
-					{% if not loop.last %}
-						<hr>
-					{% endif %}
 				{% endfor %}
 			</div>
-		</section>
+		</div>
 
-
+		{# PAGINATION #}
 		<div class="d-flex justify-content-center mb-3">
 			{{ knp_pagination_render(posts) }}
 		</div>
 	</main>
 {% endblock %}
 
-
+{# JAVASCRIPTS #}
 {% block final_javascripts %}
 	<script src="/app.js" type="module"></script>
-	<script src="/pancook/js/like.js"  type="module"></script>
+	<script src="/pancook/js/like.js" type="module"></script>
 	<script src="/pancook/js/changeBg.js"></script>
 {% endblock %}

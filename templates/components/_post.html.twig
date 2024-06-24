@@ -4,7 +4,7 @@
 		<h2 class="post-title">{{ post.title }}</h2>
 		<img src="{{ post.image }}" alt="Image de l'article {{ post.title }}">
 	</a>
-	<h3 class="post-subtitle">{{ post.content | u.truncate(24, '...') | raw }}</h3>
+	<div class="post-subtitle">{{ post.content | u.truncate(24, '...') | raw }}</div>
 
 	<p class="post-meta">Ecrit par
 		{{ post.user.email }}
@@ -14,3 +14,6 @@
 		<a href="{{ path('post_category_view', {slug: post.category.slug}) }}">{{ post.category.name }}</a>
 	</p>
 </article>
+{% if not loop.last %}
+	<hr>
+{% endif %}
