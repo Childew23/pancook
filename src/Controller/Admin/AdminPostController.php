@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Post;
-use App\Form\EditPostType;
+use App\Form\Admin\EditPostType;
 use App\Repository\PostRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
