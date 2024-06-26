@@ -1,7 +1,7 @@
 <article class="comment mt-3">
 	<p>{{ comment.content | raw }}</p>
 	<p class="comment-user">
-		<small>{{ comment.user.email }}
+		<small>{{ comment.user.username }}
 			- le
 			{{ comment.createdAt | date('d/m/Y à H:i') }}
         </small>
