@@ -19,6 +19,7 @@
 			<hr>
 			<li><a href="{{ path('home') }}">Retourner au blog Pancook</a></li>
 		</ul>
+		<small class="footer">Connecté en tant que {{ app.user.email }}</small>
 	</nav>
 	<main>
 		{% for message in app.flashes('success') %}

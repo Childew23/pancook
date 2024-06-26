@@ -17,6 +17,8 @@
 	</div>
 	<p>Email :
 		{{ user.email }}</p>
+
+	<p>Pseudo : {{ user.username }}</p>
 	<p>Rôles : [
 		{% for role in user.roles %}
 			{{ role }}

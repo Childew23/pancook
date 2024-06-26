@@ -19,7 +19,7 @@
 
 	<p>
 		<small>Ecrit par
-			<a href="{{ path('admin_user_detail', {id: post.user.id} ) }}">{{ post.user.email }}</a>
+			<a href="{{ path('admin_user_detail', {id: post.user.id} ) }}">{{ post.user.username }}</a>
 			- le
 			{{ post.createdAt|date('d/m/Y à H:i') }}
 			dans la catégorie
@@ -33,7 +33,7 @@
 		{% for comment in post.comments %}
 			<h4>{{ comment.content }}</h4>
 			<p>
-				<small><a href="{{ path('admin_user_detail', {id: comment.user.id} ) }}">{{ comment.user.email }}</a>
+				<small><a href="{{ path('admin_user_detail', {id: comment.user.id} ) }}">{{ comment.user.username }}</a>
 					- le
 					{{comment.createdAt|date('d/m/Y à H:i')}}</small>
 			</p>
@@ -46,7 +46,7 @@
 	{% else %}
 		<ul>
 			{% for user in post.likes %}
-				<li><a href="{{ path('admin_user_detail', {id: user.id} ) }}">{{ user.email }}</a></li>
+				<li><a href="{{ path('admin_user_detail', {id: user.id} ) }}">{{ user.username }}</a></li>
 			{% endfor %}
 		</ul>
 	{% endif %}

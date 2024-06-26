@@ -13,6 +13,7 @@
 			<tr>
 				<th>Id</th>
 				<th>Email</th>
+				<th>Pseudo</th>
 				<th>Rôles</th>
 				<th>IsVerified</th>
 				<th>Actions</th>
@@ -23,6 +24,7 @@
 				<tr>
 					<td>{{ user.id }}</td>
 					<td>{{ user.email }}</td>
+					<td>{{ user.username }}</td>
 					<td>
 						[
 						{% for role in user.roles %}

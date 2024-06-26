@@ -206,3 +206,9 @@ form fieldset.mb-3{
     background-color: rgb(255, 215, 215);
     color: rgb(132, 0, 0);
 }
+
+small.footer{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
