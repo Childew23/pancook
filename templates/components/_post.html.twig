@@ -7,7 +7,7 @@
 	<div class="post-subtitle">{{ post.content | u.truncate(24, '...') | raw }}</div>
 
 	<p class="post-meta">Ecrit par
-		{{ post.user.username }}
+		<span class="post-user">{{ post.user.username }}</span>
 		- le
 		{{ post.createdAt | date('d/m/Y à H:i') }}
 		- Classé dans
