@@ -23,7 +23,8 @@
 		<article>{{ post.content | raw }}</article>
 		<section class="my-5 comments">
 			{% if app.user %}
-				{{ form(form) }}{% endif %}
+				{{ form(form) }}
+			{% endif %}
 				<h2>Les commentaires de cet article :</h2>
 				{% if post.comments|length == 0 %}
 					<p>Aucun commentaire pour le moment.</p>

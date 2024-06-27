@@ -59,10 +59,6 @@ class PostController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($comment);
             $em->flush();
-
-            $this->addFlash('success', 'Le commentaire a bien été envoyé');
-
-
             return $this->redirectToRoute('post_view', ['slug' => $post->getSlug()]);
         }
 

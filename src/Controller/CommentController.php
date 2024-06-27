@@ -27,8 +27,6 @@ class CommentController extends AbstractController
             $em->flush();
         }
 
-        $this->addFlash('success', 'Le commentaire a bien été supprimé');
-
         return $this->redirectToRoute('post_view', $params);
     }
 }
