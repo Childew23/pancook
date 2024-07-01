@@ -14,6 +14,10 @@ nav{
     color: white;
 }
 
+nav a{
+    color:white;
+}
+
 nav h2{
     text-align: center;
     padding: 15px;
