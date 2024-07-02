@@ -16,7 +16,8 @@
 	<header class="header">
 		<div class="overlay">
 			<h1>Pancook</h1>
-			<h6>Blog de cuisine pour amateur</h6>
+			<h5>Blog de cuisine pour amateur</h5>
+			{% if is_granted("ROLE_USER") %}<h6>Bienvenue sur Pancook {{ app.user.username }}</h6>{% endif %}
 		</div>
 	</header>
 	
