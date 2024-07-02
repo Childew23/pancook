@@ -217,6 +217,10 @@ hr {
     color: red;
 }
 
+article.post-content, .post-content img{
+    max-width: 100%;
+}
+
 .comment {
     border: #ddddddb5 1px solid;
     padding: 1em;
