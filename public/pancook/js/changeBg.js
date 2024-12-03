@@ -1,8 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', () => {
+
     const header = document.querySelector('header');
     const container = document.querySelector('.container');
     const images = JSON.parse(container.getAttribute('data-images')); //Retrieve and convert data-images into an array
-    
+
     let currentIndex = 0;
 
     function changeBackground() {
@@ -15,3 +17,4 @@ document.addEventListener('DOMContentLoaded', function() {
         setInterval(changeBackground, 3000);
     }
 });
+

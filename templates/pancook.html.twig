@@ -61,6 +61,12 @@
 						</li>
 					{% else %}
 						<li class="nav-item">
+							<a class="nav-link" href="#">Interface de {{ app.user.username }}</a> 
+							{# <pre>
+								{{ dump(app.user.id) }}
+							</pre> #}
+						</li>
+						<li class="nav-item">
 							<a class="nav-link" href="{{ path('post_add') }}">Proposer un article</a>
 						</li>
 						{% if is_granted("ROLE_ADMIN") %}
@@ -81,7 +87,6 @@
 	</nav>
 
 	{% block content %}{% endblock %}
-
 
 	{# FOOTER #}
 	<footer class="footer mt-5">
