@@ -113,7 +113,7 @@ button.btn-primary:focus {
 .header h1 {
     margin: 0;
     font-size: 4em;
-    font-family: 'VisbyRoundCF';
+    font-family: 'VisbyRoundCF', sans-serif;
     color: #FFB100;
 }
 
@@ -152,6 +152,9 @@ aside {
     padding: 1em;
     margin-left: 20px;
     align-self: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .main-content {
@@ -159,13 +162,20 @@ aside {
     margin-top: 3em;
 }
 
+form{
+    width: 80%;
+    margin: auto;
+}
+
 .post-preview {
     margin-bottom: 20px;
 }
 
 .post-preview img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    max-height: fit-content;
+    border-radius: 10px;
 }
 
 .post-preview .post-title {
@@ -237,10 +247,15 @@ footer.footer {
     border-top: 1px solid rgba(202, 202, 202, 0.212);
     padding-top: 1em;
 }
+.footer p{
+    width: 80%;
+    margin: auto;
+}
 
 
 /* SMALL MOBILES */
 @media (max-width: 320px) {
+
     #logoNav {
         display: none;
     }
@@ -255,6 +270,10 @@ footer.footer {
 
     #navbarSupportedContent {
         margin-top: 1em;
+    }
+
+    h2{
+        font-size: 1.5em;
     }
 }
 

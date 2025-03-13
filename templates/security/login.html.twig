@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-	
+
 	<header class="header cooking">
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success container" role="alert">{{ message }}</div>
@@ -16,12 +16,12 @@
 		</div>
 	</header>
 	<main class="container">
+		<h2>Page de connexion</h2>
 		<form method="post">
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
 
-			<h2>Page de connexion</h2>
 			<label for="inputEmail" class="mt-4 mb-2">Email</label>
 			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
 			<label for="inputPassword" class="mt-3 mb-2">Mot de passe</label>
