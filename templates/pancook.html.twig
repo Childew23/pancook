@@ -61,10 +61,7 @@
 						</li>
 					{% else %}
 						<li class="nav-item">
-							<a class="nav-link" href="#">Interface de {{ app.user.username }}</a> 
-							{# <pre>
-								{{ dump(app.user.id) }}
-							</pre> #}
+							<a class="nav-link" href="{{ path('app_user_page', {username: app.user.username, id: app.user.id}) }}">{{ app.user.username }}</a> 
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="{{ path('post_add') }}">Proposer un article</a>

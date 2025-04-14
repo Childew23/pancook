@@ -162,7 +162,7 @@ aside {
     margin-top: 3em;
 }
 
-form{
+form:not([name="comment"]) {
     width: 80%;
     margin: auto;
 }
@@ -209,7 +209,7 @@ form{
     color: #999;
 }
 
-.post-user{
+.post-user {
     color: #FFB100;
 }
 
@@ -227,7 +227,8 @@ hr {
     color: red;
 }
 
-article.post-content, .post-content img{
+article.post-content,
+.post-content img {
     max-width: 100%;
 }
 
@@ -247,11 +248,11 @@ footer.footer {
     border-top: 1px solid rgba(202, 202, 202, 0.212);
     padding-top: 1em;
 }
-.footer p{
+
+.footer p {
     width: 80%;
     margin: auto;
 }
-
 
 /* SMALL MOBILES */
 @media (max-width: 320px) {
@@ -272,7 +273,7 @@ footer.footer {
         margin-top: 1em;
     }
 
-    h2{
+    h2 {
         font-size: 1.5em;
     }
 }
@@ -307,6 +308,19 @@ footer.footer {
 
     .post-preview .post-subtitle {
         font-size: 1.2em;
+    }
+
+    .card-post-user {
+        max-width: 540px;
+    }
+}
+
+/* TABLETS */
+@media (min-width: 426px) and (max-width: 768px) {
+    .card-post-user img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
 }
@@ -346,6 +360,12 @@ footer.footer {
 
     .like-heart {
         width: auto;
+    }
+
+    .card-post-user img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -439,5 +459,15 @@ footer.footer {
         text-align: center;
         border-top: 1px solid rgba(202, 202, 202, 0.212);
         padding-top: 1em;
+    }
+
+    .card-post-user{
+        flex-direction: row;
+    }
+
+    .card-post-user img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
