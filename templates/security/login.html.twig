@@ -21,6 +21,14 @@
 			{% if error %}
 				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 			{% endif %}
+			
+			{% for label, messages in app.flashes %}
+				{% for msg in messages %}
+					<div class="alert alert-danger">
+						{{ msg }}
+					</div>
+				{% endfor %}
+			{% endfor %}
 
 			<label for="inputEmail" class="mt-4 mb-2">Email</label>
 			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
