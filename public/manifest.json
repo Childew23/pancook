@@ -1,0 +1,22 @@
+{
+    "name": "Pancook blog de cuisine pour amateur",
+    "short_name": "Pancook",
+    "description": "Pancook est un blog de cuisine",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "/pancook/assets/favicon/android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/pancook/assets/favicon/android-chrome-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
