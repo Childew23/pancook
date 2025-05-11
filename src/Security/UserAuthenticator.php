@@ -68,7 +68,6 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         $flashBag = $session->getBag('flashes');
         $flashBag->add('danger', $flashMessage);
 
-        // 4) Rediriger vers le login
         return new RedirectResponse($this->getLoginUrl($request));
     }
 
