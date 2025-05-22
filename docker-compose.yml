@@ -1,0 +1,52 @@
+services:
+  php:
+    build: .
+    container_name: symfony_php
+    volumes:
+      - ./:/var/www/html:delegated
+    networks:
+      - symfony
+
+  nginx:
+    image: nginx:1.23-alpine
+    container_name: symfony_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html:ro
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./docker/nginx/certs:/etc/nginx/certs:ro
+    depends_on:
+      - php
+    networks:
+      - symfony
+
+  db:
+    image: mysql:8.0
+    container_name: symfony_db
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'  # dev only
+      MYSQL_DATABASE: pancook
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - symfony
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: symfony_mailhog
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - symfony
+
+volumes:
+  db_data:
+
+networks:
+  symfony:

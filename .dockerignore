@@ -1,0 +1,7 @@
+/vendor/
+/node_modules/
+/var/cache/
+/var/log/
+/.env.local
+.env.*.local
+docker-compose.override.yml
