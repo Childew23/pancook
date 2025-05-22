@@ -1,6 +1,12 @@
 {% extends 'pancook.html.twig' %}
 
-{% block title %}Ajout d'un article{% endblock %}
+{% block title %}Ajout d'un article
+{% endblock %}
+
+{% block final_stylesheets %}
+	<link href="{{ asset('pancook/css/ckeditor.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.css" crossorigin>
+{% endblock %}
 
 {% block content %}
 	<header class="header cooking">
@@ -12,6 +18,28 @@
 
 	<main class="container mt-3">
 		<h2>Ajout d'un article</h2>
-		{{ form(form) }}
-    </main>
+		{{ form_start(form, { attr: { id: 'post-form' }}) }}
+
+		{{ form_row(form.title) }}
+
+		{# → Le champ caché (rendu en <input type="hidden" id="post_content" …>) #}
+		{{ form_widget(form.content) }}
+
+		{# → Ton conteneur CKEditor #}
+		<div class="editor-container editor-container_classic-editor" id="editor-container">
+			<div class="editor-container__editor">
+				<div id="editor">{{ form.content.vars.value|raw }}</div>
+			</div>
+		</div>
+
+		{{ form_row(form.imageFile) }}
+		{{ form_row(form.category) }}
+		{{ form_end(form) }}
+	</main>
+{% endblock %}
+
+{% block  final_javascripts %}
+	<script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.umd.js" crossorigin></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/translations/fr.umd.js" crossorigin></script>
+	<script src="/pancook/js/ckeditor.js"></script>
 {% endblock %}

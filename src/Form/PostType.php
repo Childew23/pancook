@@ -4,10 +4,10 @@ namespace App\Form;
 
 use App\Entity\Post;
 use App\Entity\Category;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -22,8 +22,10 @@ class PostType extends AbstractType
             ->add('title', TextType::class,[
                 "label" => "Titre de l'article",
             ])
-            ->add('content', CKEditorType::class,[
-                "label" => "Contenu",
+            ->add('content', HiddenType::class,[
+                'attr'=>[
+                    'id'=> 'post_content'
+                ]
             ])
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
