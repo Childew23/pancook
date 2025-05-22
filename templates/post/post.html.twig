@@ -20,7 +20,7 @@
 	</header>
 
 	<main class="container mt-5" data-image='{{ post.imageName }}'>
-		<article class="post-content">{{ post.content | raw }}</article>
+		<article class="post-content">{{ post.content | sanitize_html }}</article>
 		<section class="my-5 comments">
 			{% if app.user %}
 				{{ form(form) }}
