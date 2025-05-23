@@ -41,5 +41,5 @@
 {% block  final_javascripts %}
 	<script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.umd.js" crossorigin></script>
 	<script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/translations/fr.umd.js" crossorigin></script>
-	<script src="/pancook/js/ckeditor.js"></script>
+	<script type="module" src="{{ asset('pancook/js/ckeditor.js') }}"></script>
 {% endblock %}

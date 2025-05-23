@@ -1,3 +1,5 @@
+import { LICENSE_KEY } from "./licenceKey.js";
+
 const {
 	ClassicEditor,
 	Alignment,
@@ -52,8 +54,7 @@ const {
 	Underline
 } = window.CKEDITOR;
 
-const LICENSE_KEY =
-	'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NDkxNjc5OTksImp0aSI6ImJlMWMwMjExLWZkMzItNGU2NS05NDk4LTA4NTE0MjgyOWNjOSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImI3NmEwMjZkIn0.Hz5UDszyq_k8wLTeM9nXnaVtv7efZINqe0Lf-RQWMfReyqGBjV5E7ahpFPOPeVFEF1SlqAtU4X2vj6OCH-HAcA';
+
 
 const editorConfig = {
 	toolbar: {

@@ -25,3 +25,5 @@
 ###< symfony/asset-mapper ###
 
 pancook.sql
+
+/public/pancook/js/licenceKey.js
