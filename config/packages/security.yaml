@@ -19,7 +19,7 @@ security:
             provider: app_user_provider
             custom_authenticator: App\Security\UserAuthenticator
             login_throttling:                
-                max_attempts: 500              # max tentatives
+                max_attempts: 10              # max tentatives
                 interval: '15 minutes'
             logout:
                 path: app_logout
