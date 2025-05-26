@@ -3,11 +3,14 @@ const CACHE_NAME = 'pancook-cache-v1';
 
 // Liste des ressources à mettre en cache lors de l'installation
 const urlsToCache = [
+  '.',
   '/',
   '/pancook/css/styles.css',
   '/app.js',
+  '/pancook/assets/',
   '/pancook/assets/favicon/android-chrome-192x192.png',
-  '/pancook/assets/favicon/android-chrome-512x512.png'
+  '/pancook/assets/favicon/android-chrome-512x512.png',
+  '/pancook/assets/favicon/favicon.ico'
 ];
 
 // Événement d'installation : mise en cache des ressources
