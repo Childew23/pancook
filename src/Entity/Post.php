@@ -15,7 +15,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-#[Vich\Uploadable] 
+#[Vich\Uploadable]
 class Post
 {
     #[ORM\Id]
