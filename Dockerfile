@@ -17,6 +17,8 @@ RUN apt-get update \
     zip \
   && rm -rf /var/lib/apt/lists/*
 
+COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/99-opcache.ini
+
 # 2) Installer Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
