@@ -238,24 +238,17 @@ const editorConfig = {
 
 ClassicEditor.create(document.querySelector('#editor'), editorConfig)
 	.then(editor => {
-		// 1) Récupère la référence sur ton champ caché.
 		const hiddenInput = document.querySelector('input[name="post[content]"]');
 
-		// 2) Initialise-le une première fois.
 		hiddenInput.value = editor.getData();
 
-		// 3) À chaque changement de contenu, mets à jour le hidden.
 		editor.model.document.on('change:data', () => {
 			hiddenInput.value = editor.getData();
 		});
 
-		// 4) Avant le submit du form, assure-toi aussi de copier la dernière donnée.
-		//    On suppose que ton <form> a un id="post-form".
-		document
-			.getElementById('post-form')
-			.addEventListener('submit', () => {
-				hiddenInput.value = editor.getData();
-			});
+		document.getElementById('post-form').addEventListener('submit', () => {
+			hiddenInput.value = editor.getData();
+		});
 	})
 	.catch(error => {
 		console.error(error);
