@@ -4,7 +4,7 @@
 		<h2 class="post-title">{{ post.title }}</h2>
 		<img src="{{ asset('/pancook/img/posts/' ~ post.imageName) }}" alt="Image de l'article {{ post.title }}">
 	</a>
-	<div class="post-subtitle">{{ post.content | u.truncate(24, '...') | raw }}</div>
+	<div class="post-subtitle">{{ post.content | u.truncate(24, '...') | sanitize_html }}</div>
 
 	<p class="post-meta">Ecrit par
 		<span class="post-user">{{ post.user.username }}</span>
