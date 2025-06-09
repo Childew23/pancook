@@ -28,6 +28,7 @@ class PostType extends AbstractType
                 ]
             ])
             ->add('imageFile', VichImageType::class, [
+                "label" => "Miniature de l'article",
                 'required' => false,
                 'allow_delete' => true,
                 'delete_label' => 'Supprimer',

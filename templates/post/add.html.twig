@@ -22,10 +22,9 @@
 
 		{{ form_row(form.title) }}
 
-		{# → Le champ caché (rendu en <input type="hidden" id="post_content" …>) #}
 		{{ form_widget(form.content) }}
-
-		{# → Ton conteneur CKEditor #}
+		
+		<label for="editor" class="form-label required">Contenu de l'article</label>
 		<div class="editor-container editor-container_classic-editor" id="editor-container">
 			<div class="editor-container__editor">
 				<div id="editor">{{ form.content.vars.value|raw }}</div>
