@@ -1,5 +1,5 @@
 <article class="comment mt-3">
-	<p>{{ comment.content | raw }}</p>
+	<p>{{ comment.content | sanitize_html }}</p>
 	<p class="comment-user">
 		<small>{{ comment.user.username }}
 			- le
