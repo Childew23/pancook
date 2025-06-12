@@ -28,8 +28,8 @@ WORKDIR /var/www/html
 COPY . .
 
 # 4) Installer les dépendances PHP, chauffer le cache, et fixer les permissions
-RUN composer install --optimize-autoloader --no-interaction --no-scripts \
-  && php bin/console cache:warmup --no-ansi --env=dev \
+RUN composer install --optimize-autoloader --no-interaction --no-dev \
+  && php bin/console cache:warmup --no-ansi --env=prod \
   && chown -R www-data:www-data var
 
 EXPOSE 9000
