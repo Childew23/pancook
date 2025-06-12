@@ -28,79 +28,90 @@
 		<h2 class='my-3'>Les articles que vous avez écrit</h2>
 		<div class="container">
 			<div class="d-flex row row-cols-sm-1  row-cols-lg-2 justify-content-center justify-content-lg-between">
-				{% for post in user.posts %}
-					<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
-						<div class="card mb-3 card-post-user">
-							<div class="row g-0">
-								<div class="col-md-4">
-									<img src="{{ asset('/pancook/img/posts/' ~ post.imageName) }}" class="img-fluid rounded-start" alt="Image de l'article {{ post.title }}">
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h5 class="card-title">{{ post.title }}</h5>
-										<p class="card-text">
-											<small class="text-body-secondary">Créé le
-												{{ post.createdAt | date('d/m/Y à H:i')  }}</small>
-										</p>
+				{% if user.posts |length == 0 %}
+					<p>Vous n'avez écrit aucun article</p>
+				{% else %}
+					{% for post in user.posts %}
+						<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
+							<div class="card mb-3 card-post-user">
+								<div class="row g-0">
+									<div class="col-md-4">
+										<img src="{{ asset('/pancook/img/posts/' ~ post.imageName) }}" class="img-fluid rounded-start" alt="Image de l'article {{ post.title }}">
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h5 class="card-title">{{ post.title }}</h5>
+											<p class="card-text">
+												<small class="text-body-secondary">Créé le
+													{{ post.createdAt | date('d/m/Y à H:i')  }}</small>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</a>
-				{% endfor %}
+						</a>
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 		<h2 class='my-3'>Les articles que vous avez aimé</h2>
 		<div class="container">
 			<div class="d-flex row row-cols-sm-1  row-cols-lg-2 justify-content-center justify-content-lg-between">
-				{% for post in likes %}
-					<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
-						<div class="card mb-3 card-post-user">
-							<div class="row g-0">
-								<div class="col-md-4">
-									<img src="{{ asset('/pancook/img/posts/' ~ post.image_name) }}" class="img-fluid rounded-start" alt="Image de l'article {{ post.title }}">
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h5 class="card-title">{{ post.title }}</h5>
-										<p class="card-text">
-											<small class="text-body-secondary">Créé le
-												{{ post.created_at | date('d/m/Y à H:i')  }}</small>
-										</p>
+				{% if likes|length == 0 %}
+					<p>Vous n'avez aimé aucun article</p>
+				{% else %}
+					{% for post in likes %}
+						<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
+							<div class="card mb-3 card-post-user">
+								<div class="row g-0">
+									<div class="col-md-4">
+										<img src="{{ asset('/pancook/img/posts/' ~ post.image_name) }}" class="img-fluid rounded-start" alt="Image de l'article {{ post.title }}">
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h5 class="card-title">{{ post.title }}</h5>
+											<p class="card-text">
+												<small class="text-body-secondary">Créé le
+													{{ post.created_at | date('d/m/Y à H:i')  }}</small>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</a>
-				{% endfor %}
+						</a>
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 		<h2 class='my-3'>Les articles que vous avez commenté</h2>
 		<div class="container">
 			<div class="d-flex row row-cols-sm-1  row-cols-lg-2 justify-content-center justify-content-lg-between">
-				{% for comment in user.comments %}
-					<a href="{{ path('post_view', {slug: comment.post.slug}) }}" class="d-flex justify-content-center">
-						<div class="card mb-3 card-post-user">
-							<div class="row g-0">
-								<div class="col-md-4">
-									<img src="{{ asset('/pancook/img/posts/' ~ comment.post.imageName) }}" class="img-fluid rounded-start" alt="Image de l'article {{ comment.post.title }}">
-								</div>
-								<div class="col-md-8">
-									<div class="card-body">
-										<h5 class="card-title">{{ comment.post.title }}</h5>
-										<p class="card-text">
-											<small class="text-body-secondary">Créé le
-												{{ comment.post.createdAt | date('d/m/Y à H:i')  }}</small>
-										</p>
+				{% if user.comments|length == 0 %}
+					<p>Vous n'avez commenté aucun article</p>
+				{% else %}
+					{% for comment in user.comments %}
+						<a href="{{ path('post_view', {slug: comment.post.slug}) }}" class="d-flex justify-content-center">
+							<div class="card mb-3 card-post-user">
+								<div class="row g-0">
+									<div class="col-md-4">
+										<img src="{{ asset('/pancook/img/posts/' ~ comment.post.imageName) }}" class="img-fluid rounded-start" alt="Image de l'article {{ comment.post.title }}">
+									</div>
+									<div class="col-md-8">
+										<div class="card-body">
+											<h5 class="card-title">{{ comment.post.title }}</h5>
+											<p class="card-text">
+												<small class="text-body-secondary">Créé le
+													{{ comment.post.createdAt | date('d/m/Y à H:i')  }}</small>
+											</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-					</a>
-				{% endfor %}
+						</a>
+					{% endfor %}
+				{% endif %}
 			</div>
 		</div>
-
 
 		<h2 class='my-3'>Modifier votre profil</h2>
 		{{ form(form) }}
