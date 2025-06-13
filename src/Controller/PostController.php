@@ -46,7 +46,7 @@ class PostController extends AbstractController
         ]);
     }
 
-    #[Route('/post/{slug}', name: 'post_view', methods: ["GET", "POST"])]
+    #[Route('/post/{category}/{slug}_{id}', name: 'post_view', methods: ["GET", "POST"])]
     public function postView(Post $post, Request $request, ManagerRegistry $doctrine): Response
     {
         $comment = new Comment();

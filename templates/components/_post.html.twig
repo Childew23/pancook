@@ -1,6 +1,6 @@
 <article class="post-preview">
 	{% include "components/_like.html.twig" %}
-	<a href="{{ path('post_view', {slug: post.slug}) }}">
+	<a href="{{ path('post_view', {category: post.category.slug, slug: post.slug, id: post.id}) }}">
 		<h2 class="post-title">{{ post.title }}</h2>
 		<img src="{{ asset('/pancook/img/posts/' ~ post.imageName) }}" alt="Image de l'article {{ post.title }}">
 	</a>

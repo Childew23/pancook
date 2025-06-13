@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="d-flex row row-cols-sm-1  row-cols-lg-2 justify-content-center justify-content-lg-between">
 				{% for post in user.posts %}
-					<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
+					<a href="{{ path('post_view', {category: post.category.slug, slug: post.slug, id: post.id}) }}" class="d-flex justify-content-center">
 						<div class="card mb-3 card-post-user">
 							<div class="row g-0">
 								<div class="col-md-4">
@@ -54,7 +54,7 @@
 		<div class="container">
 			<div class="d-flex row row-cols-sm-1  row-cols-lg-2 justify-content-center justify-content-lg-between">
 				{% for post in likes %}
-					<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
+					<a href="{{ path('post_view', {category: post.category.slug, slug: post.slug, id: post.id}) }}" class="d-flex justify-content-center">
 						<div class="card mb-3 card-post-user">
 							<div class="row g-0">
 								<div class="col-md-4">
@@ -79,7 +79,7 @@
 		<div class="container">
 			<div class="d-flex row row-cols-sm-1  row-cols-lg-2 justify-content-center justify-content-lg-between">
 				{% for comment in user.comments %}
-					<a href="{{ path('post_view', {slug: comment.post.slug}) }}" class="d-flex justify-content-center">
+					<a href="{{ path('post_view', {category: comment.post.category.slug, slug: comment.post.slug, id: comment.post.id}) }}" class="d-flex justify-content-center">
 						<div class="card mb-3 card-post-user">
 							<div class="row g-0">
 								<div class="col-md-4">

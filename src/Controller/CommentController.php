@@ -21,7 +21,11 @@ class CommentController extends AbstractController
             throw new AccessDeniedException('Vous n\'êtes pas autorisé à supprimer ce commentaire.');
         }
         
-        $params = ['slug' => $comment->getPost()->getSlug()];
+        $params = [
+            'category' => $comment->getPost()->getCategory()->getSlug(),
+            'slug' => $comment->getPost()->getSlug(),
+            'id' => $comment->getPost()->getId()
+        ];
         if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->request->get('_token'))) {
             $em->remove($comment);
             $em->flush();
