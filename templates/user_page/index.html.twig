@@ -32,7 +32,7 @@
 					<p>Vous n'avez écrit aucun article</p>
 				{% else %}
 					{% for post in user.posts %}
-						<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
+						<a href="{{ path('post_view', {category: post.category.slug, slug: post.slug, id: post.id}) }}" class="d-flex justify-content-center">
 							<div class="card mb-3 card-post-user">
 								<div class="row g-0">
 									<div class="col-md-4">
@@ -61,7 +61,7 @@
 					<p>Vous n'avez aimé aucun article</p>
 				{% else %}
 					{% for post in likes %}
-						<a href="{{ path('post_view', {slug: post.slug}) }}" class="d-flex justify-content-center">
+						<a href="{{ path('post_view', {category: post.category.slug, slug: post.slug, id: post.id}) }}" class="d-flex justify-content-center">
 							<div class="card mb-3 card-post-user">
 								<div class="row g-0">
 									<div class="col-md-4">
@@ -90,7 +90,7 @@
 					<p>Vous n'avez commenté aucun article</p>
 				{% else %}
 					{% for comment in user.comments %}
-						<a href="{{ path('post_view', {slug: comment.post.slug}) }}" class="d-flex justify-content-center">
+						<a href="{{ path('post_view', {category: comment.post.category.slug, slug: comment.post.slug, id: comment.post.id}) }}" class="d-flex justify-content-center">
 							<div class="card mb-3 card-post-user">
 								<div class="row g-0">
 									<div class="col-md-4">
