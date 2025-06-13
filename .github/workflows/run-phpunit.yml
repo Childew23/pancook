@@ -49,8 +49,8 @@ jobs:
             sleep 1
           done
 
-      - name: Copy .env.test.local
-        run: cp .env.test.local .env.local
+      - name: Copy .env.test
+        run: cp .env.test .env.local
 
       - name: Run PHPUnit tests
         env:
