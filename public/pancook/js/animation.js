@@ -11,12 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         easing: 'easeInOutSine'
     });
 
-    // Animation for articles
-    anime({
-        targets: '.post-preview',
-        translateX: 500,
-        direction: 'reverse',
-        easing: 'easeInOutQuad',
-        delay: anime.stagger(500, {direction: 'reverse', easing: 'easeOutQuad'})
-      });
+    // Animation for articles (reset if only one)
+    const posts = document.querySelectorAll('.post-preview');
+    if (posts.length > 1) {
+        anime({
+            targets: '.post-preview',
+            translateX: 500,
+            direction: 'reverse',
+            easing: 'easeInOutQuad',
+            delay: anime.stagger(500, {direction: 'reverse', easing: 'easeOutQuad'})
+        });
+    } else if (posts.length === 1) {
+        posts[0].style.transform = 'none';
+    }
 });
