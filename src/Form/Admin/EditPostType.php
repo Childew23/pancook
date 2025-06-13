@@ -5,12 +5,12 @@ namespace App\Form\Admin;
 use App\Entity\Post;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 
 class EditPostType extends AbstractType
@@ -24,21 +24,21 @@ class EditPostType extends AbstractType
                 'label' => 'Catégorie',
                 'placeholder' => 'Sélectionner une catégorie',
             ])
-            ->add('content', CKEditorType::class,[
-                "label" => "Contenu",
+            ->add('content', HiddenType::class, [
+                'attr' => [
+                    'id' => 'post_content'
+                ]
             ])
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'allow_delete' => true,
                 'delete_label' => 'Supprimer',
-                //'download_label' => '...',
                 'download_uri' => true,
                 'image_uri' => true,
-                //'imagine_pattern' => '...',
                 'asset_helper' => true,
             ])
             ->add('Valider', SubmitType::class)
-            ;
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

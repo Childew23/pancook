@@ -5,10 +5,37 @@
 	Modification d'un article
 {% endblock %}
 
+{% block final_stylesheets %}
+	<link href="{{ asset('pancook/css/ckeditor.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.css" crossorigin>
+{% endblock %}
+
 {% block content %}
 	<h1>Modification d'un article</h1>
 	<div class="button-container">
 		<a href="{{path('admin_post_index')}}"><button>Retourner voir la liste des articles</button></a>
 	</div>
-	{{ form(form) }}
+	{{ form_start(form, { attr: { id: 'post-form' }}) }}
+
+	{{ form_row(form.category) }}
+
+	{# Champ caché pour le contenu #}
+	{{ form_widget(form.content) }}
+
+	{# Conteneur CKEditor #}
+	<div class="editor-container editor-container_classic-editor" id="editor-container">
+		<div class="editor-container__editor">
+			<div id="editor">{{ form.content.vars.value|raw }}</div>
+		</div>
+	</div>
+
+	{{ form_row(form.imageFile) }}
+	{{ form_row(form.Valider) }}
+	{{ form_end(form) }}
+{% endblock %}
+
+{% block final_javascripts %}
+	<script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.umd.js" crossorigin></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/translations/fr.umd.js" crossorigin></script>
+	<script type="module" src="{{ asset('pancook/js/ckeditor.js') }}"></script>
 {% endblock %}
