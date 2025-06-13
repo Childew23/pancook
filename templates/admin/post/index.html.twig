@@ -6,6 +6,11 @@
 {% endblock %}
 {% block content %}
 	<h1>Gestion des articles</h1>
+	<div class="button-container">
+		<a href="{{path('post_add')}}">
+			<button>Ajouter un article</button>
+		</a>
+	</div>
 	<table class="admin-table">
 		<thead>
 			<tr>
