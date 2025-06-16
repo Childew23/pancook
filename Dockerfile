@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-# 1) Dépendances système + extensions PHP
+# 1) System dependencies + PHP extensions
 RUN apt-get update \
   && apt-get install -y \
     git \
@@ -19,15 +19,15 @@ RUN apt-get update \
 
 COPY docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/99-opcache.ini
 
-# 2) Installer Composer
+# 2) Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# 3) Copier tout le code
+# 3) Copy all source code
 COPY . .
 
-# 4) Installer les dépendances PHP, chauffer le cache, et fixer les permissions
+# 4) Install PHP dependencies, warm up the cache, and set permissions
 RUN composer install --optimize-autoloader --no-interaction --no-dev \
   && php bin/console cache:warmup --no-ansi --env=prod \
   && chown -R www-data:www-data var
