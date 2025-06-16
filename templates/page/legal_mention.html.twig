@@ -1,43 +1,75 @@
 {% extends 'pancook.html.twig' %}
 
-{% block title %}Pancook - Mentions légales
-{% endblock %}
+{% block title %}Pancook - Mentions légales{% endblock %}
 
 {% block content %}
-	<header class="header cooking">
-		<div class="overlay">
-			<h1>Pancook</h1>
-			<h6>Blog de cuisine pour amateur</h6>
-		</div>
-	</header>
+<header class="header cooking">
+    <div class="overlay">
+        <h1>Pancook</h1>
+        <h6>Blog de cuisine pour amateur</h6>
+    </div>
+</header>
 
-	<main class="container mt-5">
-		<h2>Mentions légales</h2>
-		<p>Mentions légales publiées le 24 juin 2024</p>
-		<h3>Directeur de publication</h3>
-		<p>Bienvenue sur Pancook un blog édité par Childéric KHUTH.</p>
-		<h3>Propriété intellectuelle</h3>
-		<p>L'ensemble des éléments présents sur ce site web sont la propriété exclusive de "Pancook" cela inclut textes, savoir-faire ainsi que tous les éléments composant le site. Toutes utilisations partielles ou totales sont strictement interdites si il n' y a pas eu d'accord préalable avec les éditeurs des articles ou propriétaires du site web Pancook.</p>
-		<h3>Droits d'auteurs</h3>
-		<p>Nous ne sommes en aucun cas et à aucun moment responsable de l'utilisation des informations, quelles que soient les conséquences qu'elles engendrent. Peu importe la raison, il est strictement interdit de se représenter totalement ou partiellement comme "Pancook", cela représente un violation de la loi, d'après l'article L. 335-2 et suivants du Code de la propriété intellectuelle.</p>
-		<h3>Responsabilité</h3>
-		<p>Pancoook n'est pas responsable d'un quelconque problème technique qui peut être présent sur le site ou dans les téléchargements liés à celui-ci. Que ce soit lors de la connexion au site web ou lors de l’acheminement vers des liens externes au site, seuls les hébergeurs des sites sont responsables des problèmes techniques qui peuvent être rencontrés. Le site web s’applique à fournir des informations aussi précises que possible il ne pourra lui en tenir rigueur en cas d’incertitudes ou de retard de mises à jour. Les informations regroupées sur le site sont à titre indicatif et peuvent être modifiées à leur date de publication.</p>
-		<h3>Avertissement général</h3>
-		<p>L'ensemble des éléments présents sur ce site web sont mis à disposition des internautes gratuitement et sans aucune garantie. Ces éléments et informations  sont sous l'entière  responsabilité des internautes. Toutes les informations, textes et autres disponibles sur le site web, proviennent de sources extérieures, site web, livre, article… Nous ne garantissons pas qu'elles soient exactes, certaines informations peuvent être sources d'erreurs, contenir des fautes ou être inexactes. Ils est aussi possible qu'elle ne soit plus à jour sur l'actualité.</p>
-		<h3>Politique de confidentialité</h3>
-		<p>Notre site web récolte des données, celles-ci ne sont  aucunement revendus ou cédées à des entreprises ou organismes tiers. Aucune adresse mail, mot de passe et autres informations personnelles ne sera transmise à autrui collaborateur et partenaires compris.</p>
-		<h3>Copyright et crédits</h3>
-		<p>Lorsque notre site web utilise des images ou visuels présentant des crédits ou copyright, cela est précisé dans l'article qu'elles viennent d'un professionnel ou d'un particulier. Sites webs externes d'où provient certain contenu présent sur le blog :</p>
-		<ul>
-			<li>Pancake Moelleux : recette facile :
-				<a href="https://www.marmiton.org/recettes/recette_pancakes_15299.aspx" target="_blank">Marmiton</a>
-			</li>
-			<li>L'image de Pancake qu'on retrouve sur plusieurs pages sur l'en-tête :
-				<a href="https://www.allrecipes.com/" target="_blank">AllRecipes</a>
-			</li>
-			<li>Les différentes images utilisés pour les articles :
-				<a href="https://www.shutterstock.com/" target="_blank">Shutterstock</a>
-			</li>
-		</ul>
-	</main>
+<main class="container mt-5">
+    <h2>Mentions légales</h2>
+    <p>Mentions légales publiées le {{ "now"|date("d/m/Y") }}</p>
+
+    <h3>Éditeur du site</h3>
+    <p>
+        <strong>Pancook</strong><br>
+        Blog édité par Childéric KHUTH<br>
+        Contact : <a href="mailto:contact@pancook.fr">contact@pancook.fr</a>
+    </p>
+
+    <h3>Hébergement</h3>
+    <p>
+        Ce site est hébergé par :<br>
+        Childéric KHUTH<br>
+    </p>
+
+    <h3>Propriété intellectuelle</h3>
+    <p>
+        L'ensemble des éléments présents sur ce site web (textes, images, logos, graphismes, code source, etc.) sont la propriété exclusive de Pancook, sauf mention contraire. Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de l'éditeur.
+    </p>
+    <p>
+        Les images utilisées pour les articles proviennent de sources libres de droits ou sont utilisées avec l'accord de leurs auteurs. Les crédits sont indiqués dans les articles concernés.
+    </p>
+
+    <h3>Fonctionnalités du site</h3>
+    <ul>
+        <li>Création de compte utilisateur (email, pseudo, mot de passe sécurisé)</li>
+        <li>Connexion et gestion de profil</li>
+        <li>Publication d'articles et de commentaires</li>
+        <li>Gestion des likes sur les articles</li>
+        <li>Utilisation de cookies pour le fonctionnement du site et l'amélioration de l'expérience utilisateur</li>
+        <li>Envoi de notifications et messages système</li>
+        <li>Gestion des images d'illustration pour les articles</li>
+    </ul>
+
+    <h3>Protection des données personnelles (RGPD)</h3>
+    <p>
+        Conformément au Règlement Général sur la Protection des Données (RGPD), Pancook s'engage à ce que la collecte et le traitement de vos données personnelles (création de compte, commentaires, likes, etc.) soient limités au strict nécessaire et sécurisés.
+    </p>
+    <ul>
+        <li>Les données collectées sont : email, pseudo, mot de passe (haché), contenus publiés (articles, commentaires), préférences de navigation (cookies).</li>
+        <li>Vos données ne sont jamais cédées ni revendues à des tiers.</li>
+        <li>Vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, contactez-nous à <a href="mailto:contact@pancook.fr">contact@pancook.fr</a>.</li>
+        <li>Les mots de passe sont stockés de façon sécurisée (hachage fort).</li>
+        <li>Vous pouvez demander la suppression de votre compte et de vos données à tout moment.</li>
+        <li>Des cookies techniques sont utilisés pour le fonctionnement du site. Vous pouvez configurer votre navigateur pour les refuser.</li>
+    </ul>
+
+    <h3>Responsabilité</h3>
+    <p>
+        Pancook met tout en œuvre pour offrir aux utilisateurs des informations fiables et vérifiées. Toutefois, des erreurs ou omissions peuvent survenir. L'utilisateur est invité à signaler toute erreur via le formulaire de contact ou par email.
+    </p>
+    <p>
+        Pancook n'est pas responsable des contenus publiés par les utilisateurs (articles, commentaires) ni des liens externes présents sur le site.
+    </p>
+
+    <h3>Contact</h3>
+    <p>
+        Pour toute question concernant les mentions légales, la gestion de vos données personnelles ou le fonctionnement du site, vous pouvez nous contacter à <a href="mailto:contact@pancook.fr">contact@pancook.fr</a>.
+    </p>
+</main>
 {% endblock %}
